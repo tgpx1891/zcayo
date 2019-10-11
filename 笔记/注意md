@@ -1,0 +1,3 @@
+win7查看进程：同时按windows键（就是Windows图标那个键）和R键，在弹出框中输入 services.msc（或者开始菜单输入服务）
+
+Notepad++运行java：F6
