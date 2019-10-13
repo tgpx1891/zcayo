@@ -186,7 +186,7 @@ $ git commit -m '第一次版本提交'
 
 如果你没有设置 -m 选项，Git 会尝试为你打开一个编辑器以填写提交信息
 
-跳过git add 提交缓存直接提交
+跳过git add 写入缓存（写入过缓存后修改了）直接提交
 
 ```
 git commit -a
@@ -204,6 +204,7 @@ $ git reset HEAD hello.php
 git rm <file>
 git rm -f <file>   #删除之前修改过并且已经放到暂存区域的话，强制
 git rm --cached <file>   #从跟踪清单中删除，仍然希望保留在当前工作目录中
+git rm –r *    #递归删除目录
 ```
 
 移动或重命名一个文件、目录、软连接
@@ -211,3 +212,10 @@ git rm --cached <file>   #从跟踪清单中删除，仍然希望保留在当前
 ```
 $ git mv README  README.md
 ```
+
+推上github
+
+```
+$ git push
+```
+

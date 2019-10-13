@@ -16,7 +16,7 @@ HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输�
 
 #### 客户端请求消息
 
-![2012072810301161](E:\我的电脑\图片\学习\2012072810301161.png)
+![2012072810301161](https://massionter-images-1258860804.cos.ap-guangzhou.myqcloud.com/zcayo/2012072810301161.png)
 
 请求头部
 
@@ -29,7 +29,7 @@ HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输�
 
 #### 服务器响应消息
 
-![httpmessage](E:\我的电脑\图片\学习\httpmessage.jpg)
+![httpmessage](https://massionter-images-1258860804.cos.ap-guangzhou.myqcloud.com/zcayo/httpmessage.jpg)
 
 #### HTTP 请求方法
 
@@ -88,7 +88,7 @@ Java的GZIPOutputStream可以很方便地进行gzip压缩，查看Accept-Encodin
 
 #### HTTPS工作原理
 
-![20181204122336858](D:\360安全浏览器下载\学习\20181204122336858.png)
+![20181204122336858](https://massionter-images-1258860804.cos.ap-guangzhou.myqcloud.com/zcayo/20181204122336858.png)
 
 ### 二、TCP/IP协议
 
@@ -106,11 +106,11 @@ TCP 负责应用软件（比如您的浏览器）和网络软件之间的通信�
 
 IP 是无连接的通信协议，它不会占用两个正在通信的计算机之间的通信线路。
 
-![捕获2](E:\我的电脑\图片\学习\捕获2.PNG)
+![捕获2](https://massionter-images-1258860804.cos.ap-guangzhou.myqcloud.com/zcayo/%E6%8D%95%E8%8E%B72.PNG)
 
-![1569143670747](E:\我的电脑\图片\学习\1569143670747.png)
+![1569143670747](https://massionter-images-1258860804.cos.ap-guangzhou.myqcloud.com/zcayo/1569143670747.png)
 
-![1569143897027](E:\我的电脑\图片\学习\1569143897027.png)
+![1569143897027](https://massionter-images-1258860804.cos.ap-guangzhou.myqcloud.com/zcayo/1569143897027.png)
 
 IPv6 （Internet Protocol Version 6），IPv6 地址的 128 位（16 个字节）写成8个十六进制的无符号整数，每个整数用 4 个十六进制位表示，这些数之间用冒号（:）分开，例如
 

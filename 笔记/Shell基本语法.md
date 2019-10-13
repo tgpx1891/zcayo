@@ -4,7 +4,7 @@ shell编程100例：https://blog.csdn.net/yugemengjing/article/details/82469785
 
 #### 1、作为可执行程序
 
-将上面的代码保存为 test.sh，并 cd 到相应目录：
+将上面的代码保存为 test.sh，并 cd 到相应目录
 
 ```
 chmod +x ./test.sh  #使脚本具有执行权限
@@ -15,7 +15,7 @@ chmod +x ./test.sh  #使脚本具有执行权限
 
 #### 2、作为解释器参数
 
-这种运行方式是，直接运行解释器，其参数就是 shell 脚本的文件名，如：
+这种运行方式是，直接运行解释器，其参数就是 shell 脚本的文件名，如
 
 ```
 /bin/sh test.sh
