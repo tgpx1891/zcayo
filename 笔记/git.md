@@ -1,10 +1,15 @@
-### Linux 平台上安装
+Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。
+
+Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。
+
+Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持
+
+## Linux 平台上安装
 
 Git 的工作需要调用 curl，zlib，openssl，expat，libiconv 等库的代码，所以需要先安装这些依赖工具。如果你使用的系统是 Centos/RedHat 安装命令为
 
 ```
-$ yum install curl-devel expat-devel gettext-devel \
-  openssl-devel zlib-devel
+$ yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
 $ yum -y install git-core
 $ git --version
 git version 1.7.1
@@ -19,7 +24,7 @@ $ make prefix=/usr/local all
 $ sudo make prefix=/usr/local install
 ```
 
-### Git 配置
+## Git 配置
 
 Git 提供了一个叫做 git config 的工具，专门用来配置或读取相应的工作环境变量。这些环境变量，决定了 Git 在各个环节的具体工作方式和行为。这些变量可以存放在以下三个不同的地方
 
@@ -38,13 +43,13 @@ $ git config --global user.email test@runoob.com
 
 如果用了 **--global** 选项，那么更改的配置文件就是位于你用户主目录下的那个，以后你所有的项目都会默认使用这里配置的用户信息。如果要在某个特定的项目中使用其他名字或者电邮，只要去掉 --global 选项重新配置即可，新的设定保存在当前项目的 .git/config 文件里
 
-Git默认使用的文本编辑器, 一般可能会是 Vi 或者 Vim，重新设置为Emacs
+Git默认使用的文本编辑器, 一般可能会是 Vi 或者 Vim，重新设置为 Emacs
 
 ```
 $ git config --global core.editor emacs
 ```
 
-解决合并冲突时使用哪种差异分析工具，改用成vimdiff 
+解决合并冲突时使用哪种差异分析工具，改用成 vimdiff 
 
 ```
 $ git config --global merge.tool vimdiff
@@ -68,7 +73,7 @@ $ git config user.name
 runoob
 ```
 
-### Git 工作流程
+## Git 工作流程
 
 一般工作流程如下：
 
@@ -79,17 +84,17 @@ runoob
 - 提交修改。
 - 在修改完成后，如果发现错误，可以撤回提交并再次修改并提交
 
-![git-process](D:\360安全浏览器下载\学习\git-process.png)
+![git-process](https://zcayo.oss-cn-beijing.aliyuncs.com/%E5%9B%BE%E7%89%87/git-process.png)
 
 ### Git 工作区、暂存区和版本库
 
-Git 工作区、暂存区和版本库概念
+#### Git 工作区、暂存区和版本库概念
 
 - **工作区：**就是你在电脑里能看到的目录
 - **暂存区：**一般存放在 ".git目录下" 下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）
 - **版本库：**工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库
 
-![1352126739_7909](D:\360安全浏览器下载\学习\1352126739_7909.jpg)
+![1352126739_7909](https://zcayo.oss-cn-beijing.aliyuncs.com/%E5%9B%BE%E7%89%87/1352126739_7909.jpg)
 
 图中的 objects 标识的区域为 Git 的对象库，实际位于 ".git/objects" 目录下，里面包含了创建的各种对象及内容
 
@@ -105,7 +110,7 @@ Git 工作区、暂存区和版本库概念
 
 当执行 "git checkout HEAD ." 或者 "git checkout HEAD <file>" 命令时，会用 HEAD 指向的 master 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。
 
-### Git 创建仓库
+## Git 创建仓库
 
 初始化一个 Git 仓库
 
@@ -132,7 +137,7 @@ git clone <repo> <directory>
 
 repo：Git 仓库，directory：本地目录，不加目录时为当前目录，执行该命令后，会在当前目录下创建一个名为grit的目录，其中包含一个 .git 的目录，用于保存下载下来的所有版本记录
 
-克隆 Ruby 语言的 Git 代码仓库 Grit到mygrit目录
+克隆 Ruby 语言的 Git 代码仓库 Grit 到mygrit 目录
 
 ```
 $ git clone git://github.com/schacon/grit.git mygrit
@@ -153,7 +158,7 @@ $ git add README hello.php
 
 git status 以查看在你上次提交之后是否有修改， -s 参数以获得简短的结果输出
 
-修改 README 文件后，查看项目状态显示为AM，"AM" 状态的意思是，这个文件在我们将它添加到缓存之后又有改动
+修改 README 文件后，查看项目状态显示为 AM，"AM" 状态的意思是，这个文件在我们将它添加到缓存之后又有改动
 
 ```
 $ git add .   #加当前项目的所有文件
@@ -204,7 +209,7 @@ $ git reset HEAD hello.php
 git rm <file>
 git rm -f <file>   #删除之前修改过并且已经放到暂存区域的话，强制
 git rm --cached <file>   #从跟踪清单中删除，仍然希望保留在当前工作目录中
-git rm –r *    #递归删除目录
+git rm –r 目录    #递归删除目录
 ```
 
 移动或重命名一个文件、目录、软连接
@@ -219,3 +224,4 @@ $ git mv README  README.md
 $ git push
 ```
 
+未完待续。。。

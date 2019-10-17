@@ -1,5 +1,20 @@
 shell 编程100例：https://blog.csdn.net/yugemengjing/article/details/82469785
 
+Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。Shell 脚本（shell script），是一种为 shell 编写的脚本程序。
+
+业界所说的 shell 通常都是指 shell 脚本Linux 的 Shell 种类众多，常见的有：
+
+- Bourne Shell（/usr/bin/sh或/bin/sh）
+- Bourne Again Shell（/bin/bash）
+- ...
+
+在一般情况下，人们并不区分 Bourne Shell 和 Bourne Again Shell，所以，像 `#!/bin/sh`，它同样也可以改`#!/bin/bash`。#! 告诉系统其后路径所指定的程序即是解释此脚本文件的 Shell 程序
+
+```shell
+#!/bin/bash
+echo "Hello World !"
+```
+
 ### 运行 Shell 脚本
 
 #### 1、作为可执行程序
@@ -96,7 +111,11 @@ length=${#array_name[*]}
 lengthn=${#array_name[n]} # 取得数组单个元素的长度
 ```
 
-### 多行注释
+### 注释
+
+注释用 #
+
+#### 多行注释
 
 ```shell
 :<<EOF
@@ -535,3 +554,5 @@ $
 ```shell
 $ command > /dev/null 2>&1
 ```
+
+seq 用于生成从一个数到另一个数之间的所有整数

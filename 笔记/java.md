@@ -7,7 +7,7 @@ $ javac ScannerDemo.java
 $ java ScannerDemo
 ```
 
-### Java Character 类
+## Java Character 类
 
 ```java
 char ch = 'a';
@@ -17,22 +17,22 @@ Character ch = new Character('a');
 Character ch = 'a';   // 原始字符 'a' 装箱到 Character 对象 ch 中
 ```
 
-Java语言为内置数据类型char提供了包装类Character类，将一个char类型的参数传递给需要一个Character类型参数的方法时，那么编译器会自动地将char类型参数转换为Character对象。 这种特征称为装箱，反过来称为拆箱
+Java语言为内置数据类型 char 提供了包装类 Character 类，将一个 char 类型的参数传递给需要一个 Character 类型参数的方法时，那么编译器会自动地将 char 类型参数转换为 Character 对象。 这种特征称为装箱，反过来称为拆箱
 
-#### Character 方法
+### Character 方法
 
 | 序号 | 方法与描述                                                   |
 | :--- | :----------------------------------------------------------- |
-| 1    | [isLetter()](https://www.runoob.com/java/character-isletter.html) 是否是一个字母 |
-| 2    | [isDigit()](https://www.runoob.com/java/character-isdigit.html) 是否是一个数字字符 |
+| 1    | isLetter() 是否是一个字母                                    |
+| 2    | isDigit() 是否是一个数字字符                                 |
 | 3    | [isWhitespace()](https://www.runoob.com/java/character-iswhitespace.html) 是否是一个空白字符 |
 | 4    | [isUpperCase()](https://www.runoob.com/java/character-isuppercase.html) 是否是大写字母 |
-| 5    | [isLowerCase()](https://www.runoob.com/java/character-islowercase.html) 是否是小写字母 |
+| 5    | isLowerCase() 是否是小写字母                                 |
 | 6    | [toUpperCase()](https://www.runoob.com/java/character-touppercase.html) 指定字母的大写形式 |
 | 7    | [toLowerCase](https://www.runoob.com/java/character-tolowercase.html)() 指定字母的小写形式 |
-| 8    | [toString](https://www.runoob.com/java/character-tostring.html)() 返回字符的字符串形式，字符串的长度仅为1 |
+| 8    | toString() 返回字符的字符串形式，字符串的长度仅为1           |
 
-#### 转义序列
+### 转义序列
 
 | 转义序列 | 描述                     |
 | :------- | :----------------------- |
@@ -45,7 +45,7 @@ Java语言为内置数据类型char提供了包装类Character类，将一个cha
 | \"       | 在文中该处插入双引号     |
 | \\       | 在文中该处插入反斜杠     |
 
-### Java String 类
+## Java String 类
 
 提供一个字符数组参数来初始化字符串
 
@@ -58,7 +58,7 @@ String helloString = new String(helloArray);
 
 length() 方法用于获取字符串长度
 
-连接字符串
+### 连接字符串
 
 ```java
 "我的名字是 ".concat("Runoob");
@@ -73,30 +73,30 @@ System.out.printf("浮点型变量的值为 " +
                   " %d, 字符串变量的值为 " + 
                   "is %s", floatVar, intVar, stringVar);
 String fs;
-fs = String.format("浮点型变量的值为 " +   //String 类使用静态方法 format() 返回一个String 对象
+fs = String.format("浮点型变量的值为 " +   //String 类使用静态方法 format() 返回一个 String 对象
                    "%f, 整型变量的值为 " +
                    " %d, 字符串变量的值为 " +
                    " %s", floatVar, intVar, stringVar);
 ```
 
-#### String 方法
+### String 方法
 
 | SN(序号) | 方法描述                                                     |
 | :------- | :----------------------------------------------------------- |
-| 1        | [char charAt(int index)](https://www.runoob.com/java/java-string-charat.html) 返回指定索引处的 char 值。 |
+| 1        | char charAt(int index) 返回指定索引处的 char 值。            |
 | 2        | [int compareTo(Object o)](https://www.runoob.com/java/java-string-compareto.html) 把这个字符串和另一个对象比较。 |
 | 3        | int compareTo(String anotherString) 按字典顺序比较两个字符串。 |
-| 4        | [int compareToIgnoreCase(String str)](https://www.runoob.com/java/java-string-comparetoignorecase.html) 按字典顺序比较两个字符串，不考虑大小写。 |
-| 5        | [String concat(String str)](https://www.runoob.com/java/java-string-concat.html) 将指定字符串连接到此字符串的结尾。 |
+| 4        | int compareToIgnoreCase(String str) 按字典顺序比较两个字符串，不考虑大小写。 |
+| 5        | String concat(String str) 将指定字符串连接到此字符串的结尾。 |
 | 6        | [boolean contentEquals(StringBuffer sb)](https://www.runoob.com/java/java-string-contentequals.html) 当且仅当字符串与指定的StringBuffer有相同顺序的字符时候返回真。 |
-| 7        | [static String copyValueOf(char[\] data)](https://www.runoob.com/java/java-string-copyvalueof.html) 返回指定数组中表示该字符序列的 String。 |
-| 8        | [static String copyValueOf(char[\] data, int offset, int count)](https://www.runoob.com/java/java-string-copyvalueof.html) 返回指定数组中表示该字符序列的 String。 |
+| 7        | static String copyValueOf(char[ ] data) 返回指定数组中表示该字符序列的 String。 |
+| 8        | static String copyValueOf(char[ ] data, int offset, int count) 返回指定数组中表示该字符序列的 String。 |
 | 9        | [boolean endsWith(String suffix)](https://www.runoob.com/java/java-string-endswith.html) 测试此字符串是否以指定的后缀结束。 |
-| 10       | [boolean equals(Object anObject)](https://www.runoob.com/java/java-string-equals.html) 将此字符串与指定的对象比较。 |
+| 10       | boolean equals(Object anObject) 将此字符串与指定的对象比较。 |
 | 11       | boolean equalsIgnoreCase(String anotherString) 将此 String 与另一个 String 比较，不考虑大小写。 |
-| 12       | [byte[\] getBytes()](https://www.runoob.com/java/java-string-getbytes.html)  使用平台的默认字符集将此 String 编码为 byte 序列，并将结果存储到一个新的 byte 数组中。 |
-| 13       | [byte[\] getBytes(String charsetName)](https://www.runoob.com/java/java-string-getbytes.html) 使用指定的字符集将此 String 编码为 byte 序列，并将结果存储到一个新的 byte 数组中。 |
-| 14       | [void getChars(int srcBegin, int srcEnd, char[\] dst, int dstBegin)](https://www.runoob.com/java/java-string-getchars.html) 将字符从此字符串复制到目标字符数组。 |
+| 12       | byte[ ] getBytes()  使用平台的默认字符集将此 String 编码为 byte 序列，并将结果存储到一个新的 byte 数组中。 |
+| 13       | byte[ ] getBytes(String charsetName) 使用指定的字符集将此 String 编码为 byte 序列，并将结果存储到一个新的 byte 数组中。 |
+| 14       | void getChars(int srcBegin, int srcEnd, char[ ] dst, int dstBegin) 将字符从此字符串复制到目标字符数组。 |
 | 15       | [int hashCode()](https://www.runoob.com/java/java-string-hashcode.html) 返回此字符串的哈希码。 |
 | 16       | [int indexOf(int ch)](https://www.runoob.com/java/java-string-indexof.html) 返回指定字符在此字符串中第一次出现处的索引。 |
 | 17       | [int indexOf(int ch, int fromIndex)](https://www.runoob.com/java/java-string-indexof.html) 返回在此字符串中第一次出现指定字符处的索引，从指定的索引开始搜索。 |
@@ -110,27 +110,27 @@ fs = String.format("浮点型变量的值为 " +   //String 类使用静态方�
 | 25       | [int length()](https://www.runoob.com/java/java-string-length.html) 返回此字符串的长度。 |
 | 26       | [boolean matches(String regex)](https://www.runoob.com/java/java-string-matches.html) 告知此字符串是否匹配给定的正则表达式。 |
 | 27       | [boolean regionMatches(boolean ignoreCase, int toffset, String other, int ooffset, int len)](https://www.runoob.com/java/java-string-regionmatches.html) 测试两个字符串区域是否相等。 |
-| 28       | [boolean regionMatches(int toffset, String other, int ooffset, int len)](https://www.runoob.com/java/java-string-regionmatches.html) 测试两个字符串区域是否相等。 |
-| 29       | [String replace(char oldChar, char newChar)](https://www.runoob.com/java/java-string-replace.html) 返回一个新的字符串，它是通过用 newChar 替换此字符串中出现的所有 oldChar 得到的。 |
-| 30       | [String replaceAll(String regex, String replacement)](https://www.runoob.com/java/java-string-replaceall.html) 使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。 |
-| 31       | [String replaceFirst(String regex, String replacement)](https://www.runoob.com/java/java-string-replacefirst.html)  使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。 |
-| 32       | [String[\] split(String regex)](https://www.runoob.com/java/java-string-split.html) 根据给定正则表达式的匹配拆分此字符串。 |
-| 33       | [String[\] split(String regex, int limit)](https://www.runoob.com/java/java-string-split.html) 根据匹配给定的正则表达式来拆分此字符串。 |
+| 28       | boolean regionMatches(int toffset, String other, int ooffset, int len) 测试两个字符串区域是否相等。toffset 为此字符串中子区域的起始偏移量。 |
+| 29       | String replace(char oldChar, char newChar) 返回一个新的字符串，它是通过用 newChar 替换此字符串中出现的所有 oldChar 得到的。 |
+| 30       | String replaceAll(String regex, String replacement) 使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。 |
+| 31       | String replaceFirst(String regex, String replacement)  使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。 |
+| 32       | String[ ] split(String regex) 根据给定正则表达式的匹配拆分此字符串。 |
+| 33       | String[ ] split(String regex, int limit) 根据匹配给定的正则表达式来拆分此字符串，限制分割的份数。 |
 | 34       | [boolean startsWith(String prefix)](https://www.runoob.com/java/java-string-startswith.html) 测试此字符串是否以指定的前缀开始。 |
 | 35       | [boolean startsWith(String prefix, int toffset)](https://www.runoob.com/java/java-string-startswith.html) 测试此字符串从指定索引开始的子字符串是否以指定前缀开始。 |
-| 36       | [CharSequence subSequence(int beginIndex, int endIndex)](https://www.runoob.com/java/java-string-subsequence.html)  返回一个新的字符序列，它是此序列的一个子序列。 |
-| 37       | [String substring(int beginIndex)](https://www.runoob.com/java/java-string-substring.html) 返回一个新的字符串，它是此字符串的一个子字符串。 |
-| 38       | [String substring(int beginIndex, int endIndex)](https://www.runoob.com/java/java-string-substring.html) 返回一个新字符串，它是此字符串的一个子字符串。 |
-| 39       | [char[\] toCharArray()](https://www.runoob.com/java/java-string-tochararray.html) 将此字符串转换为一个新的字符数组。 |
+| 36       | CharSequence subSequence(int beginIndex, int endIndex)  返回一个新的字符序列，它是此序列的一个子序列。 |
+| 37       | String substring(int beginIndex) 返回一个新的字符串，它是此字符串的一个子字符串。 |
+| 38       | String substring(int beginIndex, int endIndex) 返回一个新字符串，它是此字符串的一个子字符串。 |
+| 39       | char[ ] toCharArray() 将此字符串转换为一个新的字符数组。     |
 | 40       | [String toLowerCase()](https://www.runoob.com/java/java-string-tolowercase.html) 使用默认语言环境的规则将此 String 中的所有字符都转换为小写。 |
-| 41       | [String toLowerCase(Locale locale)](https://www.runoob.com/java/java-string-tolowercase.html)  使用给定 Locale 的规则将此 String 中的所有字符都转换为小写。 |
-| 42       | [String toString()](https://www.runoob.com/java/java-string-tostring.html)  返回此对象本身（它已经是一个字符串！）。 |
-| 43       | [String toUpperCase()](https://www.runoob.com/java/java-string-touppercase.html) 使用默认语言环境的规则将此 String 中的所有字符都转换为大写。 |
+| 41       | String toLowerCase(Locale locale)  使用给定 Locale 的规则将此 String 中的所有字符都转换为小写。 |
+| 42       | String toString()  返回此对象本身（它已经是一个字符串！）。  |
+| 43       | String toUpperCase() 使用默认语言环境的规则将此 String 中的所有字符都转换为大写。 |
 | 44       | [String toUpperCase(Locale locale)](https://www.runoob.com/java/java-string-touppercase.html) 使用给定 Locale 的规则将此 String 中的所有字符都转换为大写。 |
-| 45       | [String trim()](https://www.runoob.com/java/java-string-trim.html) 返回字符串的副本，忽略前导空白和尾部空白。 |
-| 46       | static String valueOf(primitive data type x) 返回给定data type类型x参数的字符串表示形式。 |
+| 45       | String trim() 返回字符串的副本，忽略前导空白和尾部空白。     |
+| 46       | static String valueOf(primitive data type x) 返回给定data type类型（基本数据类型）x参数的字符串表示形式。 |
 
-#### Java StringBuffer 和 StringBuilder 类
+### Java StringBuffer 和 StringBuilder 类
 
 和 String 类不同的是，StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且不产生新的未使用对象。它和 StringBuffer 之间的最大不同在于 StringBuilder 的方法不是线程安全的（不能同步访问），StringBuilder 比 StringBuffer 更快
 
@@ -151,7 +151,7 @@ sBuffer.append(".com");
 | 4    | public insert(int offset, int i) 将 `int` 参数的字符串表示形式插入此序列中。 |
 | 5    | replace(int start, int end, String str) 使用给定 `String` 中的字符替换此序列的子字符串中的字符 |
 
-### Java 数组
+## Java 数组
 
 ```java
 double[] myList;         //声明数组变量
@@ -175,16 +175,14 @@ java.util.Arrays 类能方便地操作数组，它提供的所有方法都是静
 
 | 序号 | 方法和说明                                                   |
 | :--- | :----------------------------------------------------------- |
-| 1    | **public static int binarySearch(Object[] a, Object key)** 用二分查找算法在给定数组中搜索给定值的对象(Byte,Int,double等)。数组在调用前必须排序好的。如果查找值包含在数组中，则返回搜索键的索引；否则返回 (-(*插入点*) - 1)。 |
-| 2    | **public static boolean equals(long[] a, long[] a2)** 如果两个指定的 long 型数组彼此*相等*，则返回 true。如果两个数组包含相同数量的元素，并且两个数组中的所有相应元素对都是相等的，则认为这两个数组是相等的。换句话说，如果两个数组以相同顺序包含相同的元素，则两个数组是相等的。同样的方法适用于所有的其他基本数据类型（Byte，short，Int等）。 |
-| 3    | **public static void fill(int[] a, int val)** 将指定的 int 值分配给指定 int 型数组指定范围中的每个元素。同样的方法适用于所有的其他基本数据类型（Byte，short，Int等）。 |
-| 4    | **public static void sort(Object[] a)** 对指定对象数组根据其元素的自然顺序进行升序排列。同样的方法适用于所有的其他基本数据类型（Byte，short，Int等）。 |
+| 1    | **public static int binarySearch(Object[] a, Object key)** 用二分查找算法在给定数组中搜索给定值的对象(Byte,Int,double等)。数组在调用前必须排序好的。如果查找值包含在数组中，则返回搜索键的索引；否则返回 (-(*插入点*) - 1)，计算插入点值时索引要从1开始算。 |
+| 2    | **public static boolean equals(long[ ] a, long[ ] a2)** 如果两个指定的 long 型数组彼此*相等*，则返回 true。如果两个数组包含相同数量的元素，并且两个数组中的所有相应元素对都是相等的，则认为这两个数组是相等的。换句话说，如果两个数组以相同顺序包含相同的元素，则两个数组是相等的。同样的方法适用于所有的其他基本数据类型（Byte，short，Int等）。 |
+| 3    | **public static void fill(int[ ] a, int val)** 将指定的 int 值分配给指定 int 型数组指定范围中的每个元素。同样的方法适用于所有的其他基本数据类型（Byte，short，Int等）。 |
+| 4    | **public static void sort(Object[ ] a)** 对指定对象数组根据其元素的自然顺序进行升序排列。同样的方法适用于所有的其他基本数据类型（Byte，short，Int等）。 |
 
-### Java 正则表达式
+## Java 正则表达式
 
-正则表达式定义了字符串的模式，可以用来搜索、编辑或处理文本
-
-PatternSyntaxException 是一个非强制异常类，它表示一个正则表达式模式中的语法错误
+正则表达式定义了字符串的模式，可以用来搜索、编辑或处理文本。PatternSyntaxException 是一个非强制异常类，它表示一个正则表达式模式中的语法错误
 
 正则表达式实例
 
@@ -220,7 +218,7 @@ if (m.find( )) {
 }
 ```
 
-在其他的语言中（如Perl），一个反斜杠 \ 就足以具有转义的作用，而在 Java 中正则表达式中则需要有两个反斜杠才能被解析为其他语言中的转义作用。表示一位数字的正则表达式是 **\\d**，而表示一个普通的反斜杠是 **\\\\**
+在其他的语言中（如Perl），一个反斜杠 \ 就足以具有转义的作用，而在 Java 中正则表达式中则需要有两个反斜杠才能被解析为其他语言中的转义作用。表示一位数字的正则表达式是 **\\d**，而表示一个普通的反斜杠是 **\\\\** （此处有四个斜杠）
 
 | 字符          | 说明                                                         |
 | :------------ | :----------------------------------------------------------- |
@@ -233,7 +231,7 @@ if (m.find( )) {
 | {*n*}         | *n* 是非负整数。正好匹配 *n* 次。例如，"o{2}"与"Bob"中的"o"不匹配，但与"food"中的两个"o"匹配。 |
 | {*n*,}        | *n* 是非负整数。至少匹配 *n* 次。例如，"o{2,}"不匹配"Bob"中的"o"，而匹配"foooood"中的所有 o。"o{1,}"等效于"o+"。"o{0,}"等效于"o*"。 |
 | {*n*,*m*}     | *m* 和 *n* 是非负整数，其中 *n* <= *m*。匹配至少 *n* 次，至多 *m* 次。例如，"o{1,3}"匹配"fooooood"中的头三个 o。'o{0,1}' 等效于 'o?'。注意：您不能将空格插入逗号和数字之间。 |
-| ?             | 当此字符紧随任何其他限定符（*、+、?、{*n*}、{*n*,}、{*n*,*m*}）之后时，匹配模式是"非贪心的"。"非贪心的"模式匹配搜索到的、尽可能短的字符串，而默认的"贪心的"模式匹配搜索到的、尽可能长的字符串。例如，在字符串"oooo"中，"o+?"只匹配单个"o"，而"o+"匹配所有"o"。 |
+| ?             | 当此字符紧随任何其他限定符（\*、+、?、{*n*}、{*n*,}、{*n*,m}）之后时，匹配模式是"非贪心的"。"非贪心的"模式匹配搜索到的、尽可能短的字符串，而默认的"贪心的"模式匹配搜索到的、尽可能长的字符串。例如，在字符串"oooo"中，"o+?"只匹配单个"o"，而"o+"匹配所有"o"。 |
 | .             | 匹配除"\r\n"之外的任何单个字符。若要匹配包括"\r\n"在内的任意字符，请使用诸如"[\s\S]"之类的模式。 |
 | (*pattern*)   | 匹配 *pattern* 并捕获该匹配的子表达式。可以使用 **$0…$9** 属性从结果"匹配"集合中检索捕获的匹配。若要匹配括号字符 ( )，请使用"\("或者"\)"。 |
 | (?:*pattern*) | 匹配 *pattern* 但不捕获该匹配的子表达式，即它是一个非捕获匹配，不存储供以后使用的匹配。这对于用"or"字符 (\|) 组合模式部件的情况很有用。例如，'industr(?:y\|ies) 是比 'industry\|industries' 更经济的表达式。 |
@@ -241,9 +239,9 @@ if (m.find( )) {
 | (?!*pattern*) | 执行反向预测先行搜索的子表达式，该表达式匹配不处于匹配 *pattern* 的字符串的起始点的搜索字符串。它是一个非捕获匹配，即不能捕获供以后使用的匹配。例如，'Windows (?!95\|98\|NT\|2000)' 匹配"Windows 3.1"中的 "Windows"，但不匹配"Windows 2000"中的"Windows"。预测先行不占用字符，即发生匹配后，下一匹配的搜索紧随上一匹配之后，而不是在组成预测先行的字符后。 |
 | *x*\|*y*      | 匹配 *x* 或 *y*。例如，'z\|food' 匹配"z"或"food"。'(z\|f)ood' 匹配"zood"或"food"。 |
 | [*xyz*]       | 字符集。匹配包含的任一字符。例如，"[abc]"匹配"plain"中的"a"。 |
-| [^*xyz*]      | 反向字符集。匹配未包含的任何字符。例如，"[^abc]"匹配"plain"中"p"，"l"，"i"，"n"。 |
+| [^*xyz*]      | 反向字符集。匹配未包含的任何字符。例如，''[^abc]''匹配"plain"中"p"，"l"，"i"，"n"。 |
 | [*a-z*]       | 字符范围。匹配指定范围内的任何字符。例如，"[a-z]"匹配"a"到"z"范围内的任何小写字母。 |
-| [^*a-z*]      | 反向范围字符。匹配不在指定的范围内的任何字符。例如，"[^a-z]"匹配任何不在"a"到"z"范围内的任何字符。 |
+| [^*a-z*]      | 反向范围字符。匹配不在指定的范围内的任何字符。例如，"[^a-z]''匹配任何不在"a"到"z"范围内的任何字符。 |
 | \b            | 匹配一个字边界，即字与空格间的位置。例如，"er\b"匹配"never"中的"er"，但不匹配"verb"中的"er"。 |
 | \B            | 非字边界匹配。"er\B"匹配"verb"中的"er"，但不匹配"never"中的"er"。 |
 | \c*x*         | 匹配 *x* 指示的控制字符。例如，\cM 匹配 Control-M 或回车符。*x* 的值必须在 A-Z 或 a-z 之间。如果不是这样，则假定 c 就是"c"字符本身。 |
@@ -265,9 +263,9 @@ if (m.find( )) {
 | \nml          | 当 *n* 是八进制数 (0-3)，*m* 和 *l* 是八进制数 (0-7) 时，匹配八进制转义码 *nml*。 |
 | \u*n*         | 匹配 *n*，其中 *n* 是以四位十六进制数表示的 Unicode 字符。例如，\u00A9 匹配版权符号 (©) |
 
-### Java 流(Stream)、文件(File)和IO
+## Java 流(Stream)、文件(File)和IO
 
-#### 读取控制台输入
+### 读取控制台输入
 
 Java 的控制台输入由 System.in 完成。为了获得一个绑定到控制台的字符流，你可以把 System.in 包装在一个 BufferedReader 对象中来创建一个字符流。可以使用 read() 方法从控制台读取一个字符，或者用 readLine() 方法读取一个字符串。每次调用 read() 方法，它从输入流读取一个字符并把该字符作为整数值返回。 当流结束的时候返回 -1。该方法抛出 IOException
 
@@ -294,7 +292,7 @@ next() 一定要读取到有效字符后才可以结束输入，对输入有效�
 
 hasNextInt() 和 nextInt()，hasNextFloat() 和 nextFloat()，hasNextDouble() 和 nextDouble()
 
-#### 控制台输出
+### 控制台输出
 
 控制台的输出由 print( ) 和 println() 完成。这些方法都由类 PrintStream 定义，System.out 是该类对象的一个引用。PrintStream 继承了 OutputStream类，并且实现了方法 write()，write() 也可以用来往控制台写操作
 
@@ -307,11 +305,11 @@ System.out.write('\n');
 
 **注意：**write() 方法不经常使用，因为 print() 和 println() 方法用起来更为方便
 
-#### 读写文件
+### 读写文件
 
-![iostream2xx](D:\360安全浏览器下载\学习\iostream2xx.png)
+![iostream2xx](https://zcayo.oss-cn-beijing.aliyuncs.com/%E5%9B%BE%E7%89%87/iostream2xx.png)
 
-创建FileInputStream对象
+#### 创建FileInputStream对象
 
 ```java
 InputStream f = new FileInputStream("C:/java/hello");
@@ -324,15 +322,15 @@ InputStream out = new FileInputStream(f);
 
 | **序号** | **方法及描述**                                               |
 | :------- | :----------------------------------------------------------- |
-| 1        | **public void close() throws IOException{}** 关闭此文件输入流并释放与此流有关的所有系统资源。抛出IOException异常。 |
-| 2        | **protected void finalize()throws IOException {}** 这个方法清除与该文件的连接。确保在不再引用文件输入流时调用其 close 方法。抛出IOException异常。 |
-| 3        | **public int read(int r)throws IOException{}** 这个方法从 InputStream 对象读取指定字节的数据。返回为整数值。返回下一字节数据，如果已经到结尾则返回-1。 |
-| 4        | **public int read(byte[] r) throws IOException{}** 这个方法从输入流读取r.length长度的字节。返回读取的字节数。如果是文件结尾则返回-1。 |
-| 5        | **public int available() throws IOException{}** 返回下一次对此输入流调用的方法可以不受阻塞地从此输入流读取的字节数。返回一个整数值 |
+| 1        | **public void close( ) throws IOException{ }** 关闭此文件输入流并释放与此流有关的所有系统资源。抛出IOException异常。 |
+| 2        | **protected void finalize()throws IOException { }** 这个方法清除与该文件的连接。确保在不再引用文件输入流时调用其 close 方法。抛出IOException异常。 |
+| 3        | **public int read( )throws IOException{ }** 这个方法从 InputStream 对象读取一个字节的数据。返回为整数值。返回下一字节数据，如果已经到结尾则返回-1。 |
+| 4        | **public int read(byte[ ] r) throws IOException{ }** 这个方法从输入流读取 r.length 长度的字节到字节数组。返回读取的字节数。如果是文件结尾则返回-1。 |
+| 5        | **public int available( ) throws IOException{ }** 返回下一次对此输入流调用的方法可以不受阻塞地从此输入流读取的字节数。返回一个整数值 |
 
 其它输入流：ByteArrayInputStream，DataInputStream
 
-创建FileInputStream对象
+#### 创建FileInputStream对象
 
 ```java
 OutputStream f = new FileOutputStream("C:/java/hello")
@@ -345,10 +343,10 @@ OutputStream f = new FileOutputStream(f);
 
 | **序号** | **方法及描述**                                               |
 | :------- | :----------------------------------------------------------- |
-| 1        | **public void close() throws IOException{}** 关闭此文件输入流并释放与此流有关的所有系统资源。抛出IOException异常。 |
-| 2        | **protected void finalize()throws IOException {}** 这个方法清除与该文件的连接。确保在不再引用文件输入流时调用其 close 方法。抛出IOException异常。 |
-| 3        | **public void write(int w)throws IOException{}** 这个方法把指定的字节写到输出流中。 |
-| 4        | **public void write(byte[] w)** 把指定数组中w.length长度的字节写到OutputStream中 |
+| 1        | **public void close( ) throws IOException{ }** 关闭此文件输入流并释放与此流有关的所有系统资源。抛出IOException异常。 |
+| 2        | **protected void finalize( )throws IOException { }** 这个方法清除与该文件的连接。确保在不再引用文件输入流时调用其 close 方法。抛出IOException异常。 |
+| 3        | **public void write(int w)throws IOException{ }** 这个方法把指定的字节写到输出流中。 |
+| 4        | **public void write(byte[ ] w)** 把指定数组中w.length长度的字节写到OutputStream中 |
 
 其它的输出流：ByteArrayOutputStream，DataOutputStream
 
@@ -391,17 +389,16 @@ InputStreamReader reader = new InputStreamReader(fip, "UTF-8");
 // 构建InputStreamReader对象,编码与写入相同
 StringBuffer sb = new StringBuffer();
 while (reader.ready()) {   //判断此流是否已经准备好用于读取
-            sb.append((char) reader.read());   // 转成char加到StringBuffer对象中，read()返回int类型
-        }
+    sb.append((char) reader.read());   // 转成char加到StringBuffer对象中，read()返回int类型
+}
 System.out.println(sb.toString());
 reader.close();
 fip.close();
-
 ```
 
 关于文件和I/O的类：File 、FileReader、FileWriter
 
-#### java中的目录
+### java中的目录
 
 创建目录
 
@@ -411,7 +408,7 @@ File d = new File(dirname);
 d.mkdirs();
 ```
 
-**mkdir( )**方法创建一个文件夹，**mkdirs()**方法创建一个文件夹和它的所有父文件夹
+**mkdir( )**方法创建一个文件夹，**mkdirs( )** 方法创建一个文件夹和它的所有父文件夹
 
 读取目录
 
@@ -419,8 +416,8 @@ d.mkdirs();
 String dirname = "/tmp";
 File f1 = new File(dirname);
 if (f1.isDirectory()) {
-    String s[] = f1.list();
-File f = new File(dirname + "/" + s[i]);
+	String s[] = f1.list();         //返回目录字符串数组，命名由此抽象路径名表示的目录中的文件和目录
+	File f = new File(dirname + "/" + s[i]);
 }
 ```
 
@@ -444,7 +441,7 @@ public class DeleteFileDemo {
                 if (f.isDirectory()) {   
                     deleteFolder(f);
                 } else {
-                    f.delete();   
+                    f.delete();         //删除文件
                 }
             }
         }
@@ -453,4 +450,5 @@ public class DeleteFileDemo {
 }
 ```
 
-编译运行java文件
+[^ \f\n\r\t\v]: 
+[^abc]: 
