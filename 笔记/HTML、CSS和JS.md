@@ -451,7 +451,7 @@ table.t1{
 <div class="red"> 点状天蓝色细边框  </div><br/>
 ```
 
-通过制定位置，可以只给一个方向设置边框风格，颜色和宽度。  比如上和左就是有交界的，而上和下就没有交界，当有交界的边同时出现边框的时候，就会以倾斜的形式表现交界线。  
+通过制定位置，可以只给一个方向设置边框风格，颜色和宽度。  比如上和左就是有交界的，而上和下就没有交界，当有交界的边同时出现边框的时候，就会以倾斜的形式表现交界线  
 
 ```css
 div{ width:150px; height:150px;         /* 只有一个方向有边框 */
@@ -470,7 +470,7 @@ div.lefttop{ width:150px; height:150px;         /* 左边和上边都有边框 *
    background-color:lightgray; }
 ```
 
-块级元素div默认是占用100%的宽度，常见的块级元素有 div、h1、p 等。而内联元素span的宽度由其内容的宽度决定，常见的内联元素有 a、b、strong、i、input 等
+块级元素div默认是占用100%的宽度，常见的块级元素有 div、h1、p 等。而内联元素 span 的宽度由其内容的宽度决定，常见的内联元素有 a、b、strong、i、input 等
 
 ### CSS 内边距和外边距
 
@@ -500,7 +500,7 @@ div.lefttop{ width:150px; height:150px;         /* 左边和上边都有边框 *
 
 元素外边距指的是元素边框和元素边框之间的距离，属性有 margin-left: 左外边距，margin-right: 右外边距，margin-top: 上外边距，margin-bottom: 下外边距
 
-**注**：像span这样的内联元素，默认情况下，只有左右外边距，没有上下外边距
+**注**：像 span 这样的内联元素，默认情况下，只有左右外边距，没有上下外边距
 
 #### 边框模型
 
@@ -525,7 +525,7 @@ a.no_underline {text-decoration: none}         /* 去除了下划线的超链 */
 
 隐藏元素有两种方式，使用`display:none;` 隐藏一个元素，这个元素将不再占有原空间 “坑” 让出来了；使用 `visibility:hidden;`隐藏一个元素，这个元素继续占有原空间，只是“看不见”
 
-  如果把所有的css都写在html文件里面，一旦样式比较多的时候，就会显得不易维护。这个时候就会选择把所有的css内容，放在一个独立文件里，然后在html中引用该文件。通常这个文件会被命名为style.css  
+  如果把所有的 css 都写在html文件里面，一旦样式比较多的时候，就会显得不易维护。这个时候就会选择把所有的 css 内容，放在一个独立文件里，然后在 html 中引用该文件。通常这个文件会被命名为style.css  
 
 ```html
 <link rel="stylesheet" type="text/css" href="/study/style.css" />
@@ -533,7 +533,7 @@ a.no_underline {text-decoration: none}         /* 去除了下划线的超链 */
 
 如果 CSS 文件放在本地，这时就应该写成`href="file://d:/style.css"`
 
-style 标签与外部文件 style.css 样式重复，优先使用最后出现的一个；style标签上的与style属性冲突，优先使用style属性；如果样式上增加了!important，则优先级最高，甚至高于style属性
+style 标签与外部文件 style.css 样式重复，优先使用最后出现的一个；style 标签上的与 style 属性冲突，优先使用 style 属性；如果样式上增加了 !important，则优先级最高，甚至高于 style 属性
 
 ```css
 .p1{ color:green !important; }
@@ -545,7 +545,7 @@ style 标签与外部文件 style.css 样式重复，优先使用最后出现的
 
 #### 绝对定位和相对定位
 
-绝对定位属性：position，值： absolute，通过指定 left，top 绝对定位一个元素 。设置了绝对定位的元素，相当于该元素被从原文档中删除了。绝对定位是基于最近的一个定位了的父容器。如果没有定位了的父容器，所以它的最近的一个定位了的父容器就是body
+绝对定位属性：position，值： absolute，通过指定 left，top 绝对定位一个元素 。设置了绝对定位的元素，相当于该元素被从原文档中删除了。绝对定位是基于最近的一个定位了的父容器。如果没有定位了的父容器，所以它的最近的一个定位了的父容器就是 body
 
 ```css
 p.abs{ position: absolute; left: 150px; top: 50px; }
@@ -563,11 +563,11 @@ p.abs2{ position: absolute; left: 100px; top: 50px; }
 
 <div>
 这个div没有定位
-<p class="abs2" >绝对定位的文字</p>   /* 没有定位的父容器，所以它的最近的一个定位了的父容器就是body */
+<p class="abs2" >绝对定位的文字</p>   /* 没有定位的父容器，所以它的最近的一个定位了的父容器就是 body */
 </div>
 ```
 
-通过绝对定位可以把一个元素放在另一个元素上，这样位置就重复了。重复了，就存在一个谁掩盖谁的问题。 这个时候就可以使用 z-index 属性， 当 z-index的值越大，就表示放上面，z-index 越小就表示放下面  。相对定位属性：position，值：relative，与绝对定位不同的是，相对定位不会把该元素从原文档删除掉，而是在原文档的位置的基础上，移动一定的距离
+通过绝对定位可以把一个元素放在另一个元素上，这样位置就重复了。重复了，就存在一个谁掩盖谁的问题。 这个时候就可以使用 z-index 属性， 当 z-index 的值越大，就表示放上面，z-index 越小就表示放下面  。相对定位属性：position，值：relative，与绝对定位不同的是，相对定位不会把该元素从原文档删除掉，而是在原文档的位置的基础上，移动一定的距离
 
 ```css
 img#i1{ position: absolute; left: 60px; top: 20px; z-index:1; }
@@ -605,9 +605,9 @@ div{ width:320px; }
 </div>
 ```
 
-当图片不浮动时，文字就会换行出现在下面；当图片浮动时，文字围绕着图片。当图片浮动的时候，就会让出这个“坑”出来，这个时候文字就试图去填补这个“坑”，结果发现图片没走，那就只好围绕图片摆放了。不允许出现浮动元素，属性:clear，值: left right both none，如果p左边出现了浮动的元素，如此例，则设置 clear:left 即达到不允许浮动元素出现在左边的效果
+当图片不浮动时，文字就会换行出现在下面（其实不会换行）；当图片浮动时，文字围绕着图片。当图片浮动的时候，就会让出这个“坑”出来，这个时候文字就试图去填补这个“坑”，结果发现图片没走，那就只好围绕图片摆放了。不允许出现浮动元素，属性:clear，值: left right both none，如果 p 左边出现了浮动的元素，如此例，则设置 clear:left 即达到不允许浮动元素出现在左边的效果
 
-默认的div排列是会换行的，如果使用float就可以达到水平排列的效果，通常会用在菜单、导航栏等地方，如果超出了父容器，还会有自动换行的效果
+默认的 div 排列是会换行的，如果使用 float 就可以达到水平排列的效果，通常会用在菜单、导航栏等地方，如果超出了父容器，还会有自动换行的效果
 
 ```css
 div#floatingDiv{ width:200px; }
@@ -621,17 +621,17 @@ div#floatingDiv div{ float:left; }
 
 #### 显示方式
 
-元素的 display 显示方式有多种，隐藏、块级、内联、内联-块级， 块级元素会自动在前面和后面加上换行，并且在其上的width和height也能够生效，内联元素前后没有换行，并且在其上的width和height也无效，其大小由其中的内容决定 。div默认是块级元素，span默认是内联元素。display:inline 表示内联元素，display:block 表示块级元素，有时候，需要元素处于同一行，同时还能指定大小，这个时候，就需要用到 内联-块级 inline-block
+元素的 display 显示方式有多种，隐藏、块级、内联、内联-块级， 块级元素会自动在前面和后面加上换行，并且在其上的width 和 height 也能够生效，内联元素前后没有换行，并且在其上的 width 和 height 也无效，其大小由其中的内容决定 。div 默认是块级元素，span 默认是内联元素。display:inline 表示内联元素，display:block 表示块级元素，有时候，需要元素处于同一行，同时还能指定大小，这个时候，就需要用到 内联-块级 inline-block
 
 ```css
 div.d{ display:none; }
-.d{ display:block; }
+.e{ display:block; }
 span{ display:inline-block; border: 1px solid lightgray; margin:10px; width:100px; }
 /* 每个 sapn 都能设置宽度 ，同时还能在同一行 */
 <div>可见的div1</div>
 <div class="d">隐藏的div2,使用display:none隐藏</div>    /* 使得被选择的元素隐藏，并且不占用原来的位置 */
 <div>可见的div3</div>
-<span class="d">这是span,被改造成了块级元素</span>
+<span class="e">这是span,被改造成了块级元素</span>
 ```
 
 其他的不太常见的显示方式像 list-item 显示为列表，table 显示为表格，inline-table 显示为前后无换行的表格，table-cell 显示为单元格
@@ -670,12 +670,12 @@ div{ border:1px solid lightgray; margin:10px; }
 ```css
 #d { line-height: 100px; }         /* 设置垂直居中 */
 #c { padding: 30 0; }         /* 设置相同的上下内边距，实现垂直居中效果 */
-#d { display: table-cell; vertical-align: middle; height:200px; }
+#e { display: table-cell; vertical-align: middle; height:200px; }
 div{ border:solid 1px lightskyblue; }
 
 <div id="d">line-height 适合单独一行垂直居中</div>
-<div id="d">多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容  </div>
-<div id="d"><img src="http://how2j.cn/example.gif"></div>
+<div id="c">多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容  </div>
+<div id="e"><img src="http://how2j.cn/example.gif"></div>
 ```
 
 左右固定，中间自适应
@@ -732,11 +732,11 @@ div{ width:25; height:25;
 <img src="http://how2j.cn/study/wangwang.gif">
 ```
 
-clip:rect 中四个属性表示顺时针裁剪指定尺寸，只能作用于`position:absolute`的元素上
+transparent：透明的意思设置scroll -83px -0px 把图片向左滚动83个像素，向上滚动0个像素。再把div大小设置为和小图片大小一样，即可大小只显示部分图片的效果。clip:rect 中四个属性表示顺时针裁剪指定尺寸，只能作用于 position:absolute 的元素上
 
 ## JS
 
-JavaScript用于网页和用户之间的交互，比如提交的时候，进行用户名是否为空的判断。完整的javascript由语言基础，BOM和DOM组成，只有通过javascript操作DOM对象的时候，才会带来很好的实用效果
+JavaScript 用于网页和用户之间的交互，比如提交的时候，进行用户名是否为空的判断。完整的 javascript 由语言基础，BOM 和 DOM组成，只有通过javascript操作 DOM 对象的时候，才会带来很好的实用效果
 
 ```
 <script>
@@ -750,9 +750,9 @@ JavaScript用于网页和用户之间的交互，比如提交的时候，进行�
 <p id="text"> 这个是一段可以被javascript隐藏的文本</p>
 ```
 
-document 是 javascript的内置对象，代表浏览器的文档部分  。上面是 javascript 和 DOM 结合的一个简单例子，onclick，getElementById，style.display 这些内容，是 HTML DOM 应该到才会用到的知识和概念，document.getElementById 根据id获取指定的元素
+document 是 javascript 的内置对象，代表浏览器的文档部分  。上面是 javascript 和 DOM 结合的一个简单例子，onclick，getElementById，style.display 这些内容，是 HTML DOM 应该到才会用到的知识和概念，document.getElementById 根据 id 获取指定的元素
 
-  javascript代码必须放在script标签中，一旦加载，就会执行。如果有多段 script 代码（多个 script biaoq），会按照从上到下，顺序执行。script标签可以放在html的任何地方，一般建议放在head标签里  
+  javascript 代码必须放在script标签中，一旦加载，就会执行。如果有多段 script 代码（多个 script 标签），会按照从上到下，顺序执行。script标签可以放在 html 的任何地方，一般建议放在head标签里  
 
 ```html
 <html>
@@ -765,9 +765,7 @@ document 是 javascript的内置对象，代表浏览器的文档部分  。上�
 </html>
 ```
 
-javascript有两种注释方式，// 单行注释和 /* 进行多行注释
-
-使用 var 声明一个变量，但是关键字 var 可有可无，命名规则和 java 差不多，开头可以用  _、$ 和字母，其他部分可以用 $、 _ 、字母或者数字
+javascript有两种注释方式，// 单行注释和 /* 进行多行注释。使用 var 声明一个变量，但是关键字 var 可有可无，命名规则和 java 差不多，开头可以用  _、$ 和字母，其他部分可以用 $、 _ 、字母或者数字
 
 ### JS 调试方法
 
@@ -799,7 +797,7 @@ document.write(a.toString());          // 报错，无法执行
 document.write("因为前一行报错，所以这一段文字不会显示"); 
 ```
 
-javascript 是一门很有意思的语言，即便是基本类型，也是伪对象，所以他们都有属性和方法。变量 a 的类型是字符串，通过调用其为伪对象的属性length获取其长度；无论是 Number，Boolean 还是 String 都有一个 toString 方法，用于转换为字符串；Number 转换为字符串的时候有默认模式和基模式两种，toString() 表示默认模式（十进制），toString(2) 表示基模式（二进制或其它进制）
+javascript 是一门很有意思的语言，即便是基本类型，也是伪对象，所以他们都有属性和方法。变量 a 的类型是字符串，通过调用其为伪对象的属性 length 获取其长度；无论是 Number，Boolean 还是 String 都有一个 toString 方法，用于转换为字符串；Number 转换为字符串的时候有默认模式和基模式两种，toString() 表示默认模式（十进制），toString(2) 表示基模式（二进制或其它进制）
 
 javascript 分别提供内置函数 parseInt() 和 parseFloat()，转换为数字。如果被转换的字符串，同时由数字和字符构成，那么 parseInt 会一直定位数字，直到出现非字符。 所以"10abc" 会被转换为 10。如果完全不包含数字，则返回 NaN - Not a Number。使用内置函数 Boolean() 转换为 Boolean 值，当转换字符串时：非空即为 true，当转换数字时：非0即为 true，当转换对象时：非null即为 true
 
@@ -822,7 +820,7 @@ print(sum);
 
 ### JS 事件
 
-事件是javascript允许html与用户交互的行为。 用户任何对网页的操作，都会产生一个事件。事件有很多种，比如鼠标移动，鼠标点击，键盘点击等等  
+事件是 javascript 允许 html 与用户交互的行为。 用户任何对网页的操作，都会产生一个事件。事件有很多种，比如鼠标移动，鼠标点击，键盘点击等等  
 
 ```javascript
 var day=new Date().getDay(); //通过日期对象获取数字形式的星期几，从 0 到 6
@@ -969,7 +967,7 @@ hero.kill = function(){          // 定义一个函数kill
 hero.kill();         // 调用函数kill
 ```
 
-通过new Object创建对象有个问题，就是每创建一个对象，都得重新定义属性和函数。这样代码的重用性不好，那么，采用另一种方式，通过function设计一种对象。 然后实例化它 。这种思路很像 Java 里的设计一种类，但是 javascript 没有类，只有对象，所以我们叫设计一种对象
+通过new Object创建对象有个问题，就是每创建一个对象，都得重新定义属性和函数。这样代码的重用性不好，那么，采用另一种方式，通过 function 设计一种对象。 然后实例化它 。这种思路很像 Java 里的设计一种类，但是 javascript 没有类，只有对象，所以我们叫设计一种对象
 
 ```javascript
 function Hero(name){
@@ -990,7 +988,7 @@ gareen.keng();
 
   BOM即 浏览器对象模型(Browser Object Model)，浏览器对象包括 Window(窗口)、Navigator(浏览器)、Screen (客户端屏幕)、History(访问历史)、Location(浏览器地址)  。
 
-一旦页面加载，就会自动创建window对象，所以无需手动创建window对象。Navigator即浏览器对象，提供浏览器相关的信息。
+一旦页面加载，就会自动创建 window 对象，所以无需手动创建 window 对象。Navigator 即浏览器对象，提供浏览器相关的信息。
 
 ```javascript
 document.write(window.innerWidth+","+window.innerHeight);         // 获取文档显示区域的高度和宽度
