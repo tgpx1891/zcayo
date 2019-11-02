@@ -1,5 +1,3 @@
-## sql常用语句
-
 sql语句都是参照数据库系统概论书中的
 
 sql练习题：https://blog.csdn.net/mrbcy/article/details/68965271

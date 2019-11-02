@@ -97,7 +97,7 @@ function addition()
     $GLOBALS['z'] = $GLOBALS['x'] + $GLOBALS['y']; 
 }
 addition(); 
-echo $z;         //z 是一个$GLOBALS数组中的超级全局变量，该变量同样可以在函数外访问
+echo $z;         //z 是一个 $GLOBALS 数组中的超级全局变量，该变量同样可以在函数外访问
 // 以下实例中展示了如何使用$_SERVER中的元素
 echo $_SERVER['PHP_SELF']."<br>";         // /try/demo_source/demo_global_server.php
 echo $_SERVER['SERVER_NAME']."<br>";         // www.runoob.com
@@ -125,12 +125,12 @@ echo $_SERVER['SCRIPT_NAME']."<br>";         // /try/demo_source/demo_global_ser
 ```php+HTML
 <html>
 <body>
-<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">     <!-- 或者method="post" -->
+<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">     <!-- 或者 method="post" -->
 Name: <input type="text" name="fname">
 <input type="submit">
 </form>
 <?php 
-$name = $_REQUEST['fname'];          // 或者method="post" 
+$name = $_REQUEST['fname'];          // 或者 $name = $_POST['fname'];  
 echo $name; 
 ?>
 <a href="test_get.php?subject=PHP&web=runoob.com">Test $GET</a>
@@ -149,8 +149,8 @@ PHP 向它运行的任何脚本提供了大量的预定义常量。不过很多�
 -  \__LINE\__ ：文件中的当前行号
 - \__FILE\__：文件的完整路径和文件名。如果用在被包含文件中，则返回被包含的文件名。自 PHP 4.0.2 起，\__FILE\__ 总是包含一个绝对路径（如果是符号连接，则是解析后的绝对路径），而在此之前的版本有时会包含一个相对路径
 - \__DIR\__：文件所在的目录。如果用在被包括文件中，则返回被包括的文件所在的目录。它等价于 dirname(\__FILE\__)。除非是根目录，否则目录中名不包括末尾的斜杠。（PHP 5.3.0中新增）
-- \__FUNCTION\__：函数名称（PHP 4.3.0 新加）。自 PHP 5 起本常量返回该函数被定义时的名字（区分大小写）。在 PHP 4 中该值总是小写字母的
-- \__CLASS\_：类的名称（PHP 4.3.0 新加）。自 PHP 5 起本常量返回该类被定义时的名字（区分大小写）。在 PHP 4 中该值总是小写字母的。类名包括其被声明的作用区域（例如 Foo\Bar）。注意自 PHP 5.4 起 \__CLASS\__ 对 trait 也起作用。当用在 trait 方法中时，\__CLASS\__ 是调用 trait 方法的类的名字_
+- \__FUNCTION\__：函数名称（PHP 4.3.0 新加）。自 PHP 5 起本常量返回该函数被定义时的名字（区分大小写），在 PHP 4 中该值总是小写字母的
+- \_CLASS\_：类的名称（PHP 4.3.0 新加）。自 PHP 5 起本常量返回该类被定义时的名字（区分大小写），在 PHP 4 中该值总是小写字母的。类名包括其被声明的作用区域（例如 Foo\Bar）。注意自 PHP 5.4 起 \_CLASS\__ 对 trait 也起作用。当用在 trait 方法中时，\__CLASS\__ 是调用 trait 方法的类的名字
 - \__TRAIT\__：Trait 的名字（PHP 5.4.0 新加）。自 PHP 5.4.0 起，PHP 实现了代码复用的一个方法，称为 traits。Trait 名包括其被声明的作用区域（例如 Foo\Bar）
 - \__METHOD\__：类的方法名（PHP 5.0.0 新加）。返回该方法被定义时的名字（区分大小写）
 - \__NAMESPACE\__：当前命名空间的名称（区分大小写）。此常量是在编译时定义的（PHP 5.3.0 新增）
@@ -221,7 +221,7 @@ echo "<h2>PHP 很有趣!</h2>";
 echo "Hello world!<br>";
 echo "这是一个", "字符串，", "使用了", "多个", "参数。";  // 中间无空格
 echo $txt1;
-print "<br>";
+echo "<br>";
 echo "在 $txt2 学习 PHP<br>";
 echo "我车的品牌是 {$cars[0]}";
 ?>
@@ -231,7 +231,7 @@ echo "我车的品牌是 {$cars[0]}";
 
 #### EOF(heredoc) 使用
 
-PHP EOF(heredoc)是一种在命令行 shell（如sh、csh、ksh、bash、PowerShell和zsh）和程序语言（像Perl、PHP、Python和Ruby）里定义一个字符串的方法
+PHP EOF(heredoc)是一种在命令行 shell（如sh、csh、ksh、bash、PowerShell 和 zsh）和程序语言（像Perl、PHP、Python 和 Ruby）里定义一个字符串的方法
 
 使用概述：
 
@@ -278,7 +278,6 @@ $x=true;         // 布尔类型
 $cars=array("Volvo","BMW","Toyota");   // 数组
 var_dump($cars);
 // 输出结果 array(3) { [0]=> string(5) "Volvo" [1]=> string(3) "BMW" [2]=> string(6) "Toyota" }
-$x="Hello world!";
 $x=null;         // 可以通过设置变量值为 NULL 来清空变量数据
 var_dump($x);         // 结果为 NULL
 ```
@@ -291,7 +290,7 @@ class Car
 {
   var $color;
   function __construct($color="green") {
-    $this->color = $color;         // 关键字this就是指向当前对象实例的指针，不指向任何其他对象或类
+    $this->color = $color;         // 关键字 this 就是指向当前对象实例的指针，不指向任何其他对象或类
   }
   function what_color() {
     return $this->color;
@@ -370,7 +369,7 @@ $txt1="Hello world!";
 $txt2="What a nice day!";
 echo $txt1 . " " . $txt2;         // 并置运算符 (.) 用于把两个字符串值连接起来
 echo strlen("Hello world!");         // 返回字符串的长度
-echo strpos("Hello world!","world");        // 会返回第一个匹配的字符位置 6。如果未找到匹配，则返回 FALSE
+echo strpos("Hello world!","world");      // 会返回第一个匹配的字符位置 6。如果未找到匹配，则返回 FALSE
 ?>
 ```
 
@@ -378,8 +377,8 @@ echo strpos("Hello world!","world");        // 会返回第一个匹配的字符
 
 | 函数                                                         | 描述                                                         |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| [addcslashes()](https://www.runoob.com/php/func-string-addcslashes.html) | 返回在指定的字符前添加反斜杠的字符串。addcslashes("Hello World!","W")，结果为Hello \World! |
-| [addslashes()](https://www.runoob.com/php/func-string-addslashes.html) | 返回在预定义的字符前添加反斜杠的字符串。addslashes('What does "yolo" mean?')，What does \\"yolo\\\" mean? |
+| addcslashes()                                                | 返回在指定的字符前添加反斜杠的字符串。addcslashes("Hello World!","W")，结果为Hello \World! |
+| [addslashes()](https://www.runoob.com/php/func-string-addslashes.html) | 返回在预定义的字符前添加反斜杠的字符串。addslashes('What does "yolo" mean?')，What does \"yolo\" mean? |
 | [bin2hex()](https://www.runoob.com/php/func-string-bin2hex.html) | 把 ASCII 字符的字符串转换为十六进制值。                      |
 | [chop()](https://www.runoob.com/php/func-string-chop.html)   | 移除字符串右侧的空白字符或其他字符。chop("Hello World!","World!")，"Hello " |
 | [chr()](https://www.runoob.com/php/func-string-chr.html)     | 从指定 ASCII 值返回字符。                                    |
@@ -395,7 +394,7 @@ echo strpos("Hello world!","world");        // 会返回第一个匹配的字符
 | [fprintf()](https://www.runoob.com/php/func-string-fprintf.html) | 把格式化的字符串写入到指定的输出流。                         |
 | [get_html_translation_table()](https://www.runoob.com/php/func-string-get-html-translation-table.html) | 返回 htmlspecialchars() 和 htmlentities() 使用的翻译表。     |
 | [hebrev()](https://www.runoob.com/php/func-string-hebrev.html) | 把希伯来（Hebrew）文本转换为可见文本。                       |
-| [hebrevc()](https://www.runoob.com/php/func-string-hebrevc.html) | 把希伯来（Hebrew）文本转换为可见文本，并把新行（\n）转换为 <br>。 |
+| [hebrevc()](https://www.runoob.com/php/func-string-hebrevc.html) | 把希伯来（Hebrew）文本转换为可见文本，并把新行（\n）转换为 `<br>`。 |
 | [hex2bin()](https://www.runoob.com/php/func-string-hex2bin.html) | 把十六进制值的字符串转换为 ASCII 字符。                      |
 | [html_entity_decode()](https://www.runoob.com/php/func-string-html-entity-decode.html) | 把 HTML 实体转换为字符。                                     |
 | [htmlentities()](https://www.runoob.com/php/func-string-htmlentities.html) | 把字符转换为 HTML 实体。                                     |
@@ -436,17 +435,17 @@ echo strpos("Hello world!","world");        // 会返回第一个匹配的字符
 | [str_replace()](https://www.runoob.com/php/func-string-str-replace.html) | 替换字符串中的一些字符（大小写敏感）。                       |
 | [str_rot13()](https://www.runoob.com/php/func-string-str-rot13.html) | 对字符串执行 ROT13 编码。                                    |
 | [str_shuffle()](https://www.runoob.com/php/func-string-str-shuffle.html) | 随机地打乱字符串中的所有字符。                               |
-| [str_split()](https://www.runoob.com/php/func-string-str-split.html) | 把字符串分割到数组中。                                       |
+| str_split()                                                  | 把字符串分割到数组中。                                       |
 | [str_word_count()](https://www.runoob.com/php/func-string-str-word-count.html) | 计算字符串中的单词数。                                       |
 | [strcasecmp()](https://www.runoob.com/php/func-string-strcasecmp.html) | 比较两个字符串（大小写不敏感）。                             |
-| [strchr()](https://www.runoob.com/php/func-string-strchr.html) | 查找字符串在另一字符串中的第一次出现。（strstr() 的别名。）  |
+| strchr()                                                     | 查找字符串在另一字符串中的第一次出现。（strstr() 的别名。）  |
 | [strcmp()](https://www.runoob.com/php/func-string-strcmp.html) | 比较两个字符串（大小写敏感）。                               |
 | [strcoll()](https://www.runoob.com/php/func-string-strcoll.html) | 比较两个字符串（根据本地设置）。                             |
 | [strcspn()](https://www.runoob.com/php/func-string-strcspn.html) | 返回在找到任何指定的字符之前，在字符串查找的字符数。         |
 | [strip_tags()](https://www.runoob.com/php/func-string-strip-tags.html) | 剥去字符串中的 HTML 和 PHP 标签。                            |
 | [stripcslashes()](https://www.runoob.com/php/func-string-stripcslashes.html) | 删除由 addcslashes() 函数添加的反斜杠。                      |
 | [stripslashes()](https://www.runoob.com/php/func-string-stripslashes.html) | 删除由 addslashes() 函数添加的反斜杠。                       |
-| [stripos()](https://www.runoob.com/php/func-string-stripos.html) | 返回字符串在另一字符串中第一次出现的位置（大小写不敏感）。   |
+| stripos()                                                    | 返回字符串在另一字符串中第一次出现的位置（大小写不敏感）。   |
 | [stristr()](https://www.runoob.com/php/func-string-stristr.html) | 查找字符串在另一字符串中第一次出现的位置（大小写不敏感）。   |
 | [strlen()](https://www.runoob.com/php/func-string-strlen.html) | 返回字符串的长度。                                           |
 | [strnatcasecmp()](https://www.runoob.com/php/func-string-strnatcasecmp.html) | 使用一种"自然排序"算法来比较两个字符串（大小写不敏感）。     |
@@ -460,13 +459,12 @@ echo strpos("Hello world!","world");        // 会返回第一个匹配的字符
 | [strripos()](https://www.runoob.com/php/func-string-strripos.html) | 查找字符串在另一字符串中最后一次出现的位置(大小写不敏感)。   |
 | [strrpos()](https://www.runoob.com/php/func-string-strrpos.html) | 查找字符串在另一字符串中最后一次出现的位置(大小写敏感)。     |
 | [strspn()](https://www.runoob.com/php/func-string-strspn.html) | 返回在字符串中包含的特定字符的数目。                         |
-| [strstr()](https://www.runoob.com/php/func-string-strstr.html) | 查找字符串在另一字符串中的第一次出现（大小写敏感）。         |
+| strstr()                                                     | 查找字符串在另一字符串中的第一次出现（大小写敏感）。         |
 | [strtok()](https://www.runoob.com/php/func-string-strtok.html) | 把字符串分割为更小的字符串。                                 |
 | [strtolower()](https://www.runoob.com/php/func-string-strtolower.html) | 把字符串转换为小写字母。                                     |
 | [strtoupper()](https://www.runoob.com/php/func-string-strtoupper.html) | 把字符串转换为大写字母。                                     |
 | [strtr()](https://www.runoob.com/php/func-string-strtr.html) | 转换字符串中特定的字符。                                     |
 | [substr()](https://www.runoob.com/php/func-string-substr.html) | 返回字符串的一部分。                                         |
-|                                                              |                                                              |
 | [mb_substr()](https://www.runoob.com/php/func-string-mb_substr.html) | 返回中文字符串的一部分。                                     |
 | [substr_compare()](https://www.runoob.com/php/func-string-substr-compare.html) | 从指定的开始位置（二进制安全和选择性区分大小写）比较两个字符串。 |
 | substr_count()                                               | 计算子串在字符串中出现的次数。                               |
@@ -481,7 +479,7 @@ echo strpos("Hello world!","world");        // 会返回第一个匹配的字符
 
 #### 数组
 
-在 PHP 中，有三种类型的数组：数值数组 - 带有数字 ID 键的数组关联数组 - 带有指定的键的数组，每个键关联一个值，多维数组 - 包含一个或多个数组的数组
+在 PHP 中，有三种类型的数组：数值数组 - 带有数字 ID 键的数组，关联数组 - 带有指定的键的数组，每个键关联一个值，多维数组 - 包含一个或多个数组的数组
 
 ```php
 <?php
@@ -591,7 +589,7 @@ echo 1 <=> 1; // 结果为 0
 $a = 3;
 $b = false;
 $c = $a or $b;
-var_dump($c);          // 这里的 $c 为 int 值3，而不是 boolean 值 true
+var_dump($c);          // 这里的 $c 为 int 值 3，而不是 boolean 值 true
 $d = $a || $b;
 var_dump($d);          //这里的 $d 就是 boolean 值 true 
 ?>
@@ -602,7 +600,7 @@ var_dump($d);          //这里的 $d 就是 boolean 值 true
 if 语句 、if...else 语句、if...elseif....else 语句、switch 语句
 
 ```php
-<?php          // H 为小时，如果当前时间小于 20
+<?php          // H 为小时二十四制，如果当前时间小于 10
 $t=date("H");         // if...elseif....else 语句
 if ($t<"10")
 {
@@ -725,7 +723,7 @@ function Connect() { /* ... */  }
 PHP 命名空间中的类名可以通过三种方式引用
 
 1. 非限定名称，或不包含前缀的类名称。 警告：如果命名空间中的函数或常量未定义，则该非限定的函数名称或常量名称会被解析为全局函数名称或常量名称。
-2. 限定名称,或包含前缀的名称
+2. 限定名称，或包含前缀的名称
 3. 完全限定名称，或包含了全局前缀操作符的名称
 
 ```php
@@ -798,7 +796,7 @@ $a = 'classname';
 $obj = new $a; // prints classname::__construct
 $b = 'funcname';
 $b(); // prints funcname
-echo constant('constname'), "\n"; // prints global
+echo constant('constname'), "\n"; // prints global，直接用 constname 也可以
 ?>
 <?php         // 动态访问命名空间的元素
 namespace namespacename;
@@ -820,7 +818,7 @@ $obj = new $a; // 输出 classname::__construct
 $b = 'funcname';
 $b(); // 输出函数名
 echo constant('constname'), "\n"; // 输出 global
-/* 如果使用双引号，使用方法为 "\\namespacename\\classname"*/
+/* 如果使用双引号，使用方法为 "\\namespacename\\classname" */
 $a = '\namespacename\classname';
 $obj = new $a; // 输出 namespacename\classname::__construct
 $a = 'namespacename\classname';
@@ -853,7 +851,7 @@ function get($classname)
 ```php
 <?php
 namespace MyProject;
-use blah\blah as mine; // see "Using namespaces: importing/aliasing"
+use blah\blah as mine; // see "Using namespaces: importing/aliasing" ？
 
 blah\mine(); // calls function blah\blah\mine()
 namespace\blah\mine(); // calls function MyProject\blah\mine()
@@ -877,7 +875,7 @@ use My\Full\Classname as Another;
 use My\Full\NSname;         // 与 use My\Full\NSname as NSname 相同
 use \ArrayObject;         // 导入一个全局类
 $obj = new namespace\Another;         // 实例化 foo\Another 对象
-$obj = new Another;         // 实例化 My\Full\Classname　对象
+$obj = new Another;         // 实例化 My\Full\Classname 对象
 NSname\subns\func();         // 调用函数 My\Full\NSname\subns\func
 $a = new ArrayObject(array(1));         
 // 实例化 ArrayObject 对象，如果不使用 "use \ArrayObject" ，则实例化一个 foo\ArrayObject 对象
@@ -952,7 +950,7 @@ A\B::foo();   // 调用命名空间 "A\A" 中定义的类 "B" 的 "foo" 方法�
 - **重载** − 函数或者方法有同样的名称，但是参数列表不相同，这样的同名不同参数的函数或者方法之间，互相称之为重载函数或者方法
 - **抽象性** − 抽象性是指将具有一致的数据结构（属性）和行为（操作）的对象抽象成类。一个类就是这样一种抽象，它反映了与应用有关的重要性质，而忽略其他一些无关内容。任何类的划分都是主观的，但必须与具体的应用有关
 - **封装** − 封装是指将现实世界中存在的某个客体的属性与行为绑定在一起，并放置在一个逻辑单元内
-- **析构函数** − 析构函数(destructor) 与构造函数相反，当对象结束其生命周期时（例如对象所在的函数已调用完毕），系统自动执行析构函数。析构函数往往用来做"清理善后" 的工作（例如在建立对象时用new开辟了一片内存空间，应在退出前在析构函数中用delete释放）
+- **析构函数** − 析构函数(destructor) 与构造函数相反，当对象结束其生命周期时（例如对象所在的函数已调用完毕），系统自动执行析构函数。析构函数往往用来做"清理善后" 的工作（例如在建立对象时用 new 开辟了一片内存空间，应在退出前在析构函数中用 delete 释放）
 
 ```php
 <?php
@@ -1049,7 +1047,7 @@ $myclass->MyProtected();          // 这行会产生一个致命错误
 $myclass->MyPrivate();          // 这行会产生一个致命错误
 class MyClass2 extends MyClass
 {
-    protected $protected = 'Protected2'; // 可以对 public 和 protected 进行重定义，但 private 而不能
+    protected $protected = 'Protected2';// 可以对 public 和 protected 进行重定义，但 private 而不能？
     function printHello()          //如果不定义将输出父类中的属性
     {
         echo $this->public;
@@ -1113,7 +1111,9 @@ class MyClass
     }
 }
 echo MyClass::constant . PHP_EOL;
-$class = new MyClass();         // 或者 $classname = "MyClass"
+$classname = "MyClass";
+echo $classname::constant . PHP_EOL;
+$class = new MyClass();         
 $class->showConstant();
 echo $class::constant . PHP_EOL;          // 自 PHP 5.3.0 起
 ?>
@@ -1152,7 +1152,7 @@ class ConcreteClass1 extends AbstractClass
         } else {
             $prefix = "";
         }
-        return "{$prefix}{$separator} {$name}";
+        return "{$prefix}{$separator}{$name}";
     }
 }
 $class1 = new ConcreteClass1;
@@ -1185,6 +1185,6 @@ class SubClass extends BaseClass {
 ?>
 ```
 
-`::`是作用域限定操作符它用来置顶类中不同作用域的级别，左边是作用域右边是访问作用域的成员。`::`用于静态上下文，即当某些方法或属性声明为静态时。还可以在调用父类的方法/属性时，动态上下文中使用在 PHP 中定义的作用域有 self 和 parent 两种（在 PHP6 中提供了 static 作用域），self表示当前类的作用域，与 this 不同的是它不表示类的某个特定实例，在类之外的代码中不能使用 self，而且它不能识别自己在继承中层次的位置。也就是说，当在扩展类中使用self时，它调用的不是父类的方法，而是扩展类的重载的方法
+`::`是作用域限定操作符它用来置顶类中不同作用域的级别，左边是作用域右边是访问作用域的成员。`::`用于静态上下文，即当某些方法或属性声明为静态时。还可以在调用父类的方法/属性时，动态上下文中使用。在 PHP 中定义的作用域有 self 和 parent 两种（在 PHP6 中提供了 static 作用域），self 表示当前类的作用域，与 this 不同的是它不表示类的某个特定实例，在类之外的代码中不能使用 self，而且它不能识别自己在继承中层次的位置。也就是说，当在扩展类中使用self 时，它调用的不是父类的方法，而是扩展类的重载的方法
 
 PHP 5 新增了一个 final 关键字。如果父类中的方法被声明为 final，则子类无法覆盖该方法。如果一个类被声明为 final，则不能被继承。PHP 不会在子类的构造方法中自动的调用父类的构造方法。要执行父类的构造方法，需要在子类的构造方法中调用 `parent::__construct()` 

@@ -1,3 +1,27 @@
 win7查看进程：同时按windows键（就是Windows图标那个键）和R键，在弹出框中输入 services.msc（或者开始菜单输入服务）
 
 Notepad++运行java：F6
+
+在“运行”中键入msconfig，启动“系统配置实用程序”
+
+注册表 RegEdit
+
+cmd
+
+windows 移动中心（win+x）
+
+### win7开启自带无线
+
+1. Win7系统下找到任务栏左下角的开始菜单键入cmd，搜索到命令符号符并鼠标右键选择选择“以管理员身份运行”
+2. windows7无线wifi设置必须要启动“虚拟Wifi网卡”模式。在打开的命令符号符窗口中输入以下命令：netsh wlan set hostednetwork mode=allow ssid=(无线网络名称) key=(密码)
+3. 接着启用“Internet连接共享(ICS)”。打开“网络连接”窗口，右键单击已连接到Internet的网络连接，选择“属性”，找到“共享”这个选项，选中其中的复选框，并选择允许其共享Internet的网络连接
+4. 然后我们需要开启[windows7](http://www.windows7en.com/)无线wifi。 同样的，我们需要在命令提示符中输入一段命令。命令如下：netsh wlan start hostednetwork，当出现已启动承载网络这个提示后，说明Windows 无线wifi已经启动成功
+5. 因为我们使用的是虚拟网络，不能使用同一个IP地址，所以需要对IP地址进行一定的修改，我们打开internet协议找到，internet(TCP/IPv4或IPv6)协议并打开，将您的IP稍作修改。我这里IP修改为192.168.2.3，网关修改为192.168.2.1
+
+<http://www.windows7en.com/Win7/16648.html>
+
+### 80端口被占用
+
+PID=4的 system 进程占用了80端口。打开RegEdit（注册表），在开始搜索那里输入 RegEdit，找到`HKEY_LOCAL_MACHINE/SYSTEM/CurrentControlSet/Services/HTTP`然后回车，找到一个 DWORD值 Start，右击修改将数值数据改为0（原来为3）。重启电脑，System 进程将不会占用80端口。
+
+<https://www.cnblogs.com/kathy920617/p/6655810.html>
