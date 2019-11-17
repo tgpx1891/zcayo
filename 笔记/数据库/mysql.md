@@ -66,6 +66,9 @@ mysql> SHOW CREATE TABLE table_name;
    mysql -u root -p 123456
    ```
 
+#### 清空密码
+
+以 root 用户进入 MySQL，清空密码`SET PASSWORD = PASSWORD('');`，再刷新权限，使配置生效
 
 ### 设置mysql用户账户
 
@@ -96,7 +99,7 @@ D:\software\mysql-5.6.25-winx64\bin> mysqladmin -u root -p create tutorials
 mysql>create database tutorials default character set utf8 collate utf8_general_ci;
 ```
 
-utf8 为字符集，utf8_general_ci 为字符集校对
+utf8 为字符集，utf8_general_ci 为字符集校对。语句 `set names utf8` 用于设定数据库编码，让中文可以正常显示
 
 删除数据库
 

@@ -83,9 +83,11 @@ i 是 italic 的缩写，仅仅表示该文本是斜体的，并不暗示这段�
 </a>
 ```
 
+ a 标签中的 download 规定被下载的超链接目标
+
 #### html 表格
 
-`<table>`标签用于显示一个表格，`<tr> `表示行，`<td> `表示列又叫单元格
+`<table>`标签用于显示一个表格，`<tr> `表示行，`<td> `表示列又叫单元格。 caption 元素定义表格标题 
 
 ```html
 <table border="1" width="200px">
@@ -172,6 +174,10 @@ i 是 italic 的缩写，仅仅表示该文本是斜体的，并不暗示这段�
 ```html
 <iframe src="http://how2j.cn/" width="600px" height="400px"></iframe>
 ```
+
+#### 其它标签
+
+\<nav> 标签定义导航链接的部分
 
 ### 表单元素
 
@@ -296,6 +302,15 @@ login.jsp
 设置 type="submit"，IE 下 button 的 type 的默认值为 button 不具备提交功能，其他浏览器type的默认值是submit
 
 ## CSS
+
+### css  引用
+
+```css
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />       /* 给网页放置一个小图标 */
+```
 
 不使用 css 给每一个单元格加上背景颜色，就需要给每一个 td 元素加上 bgcolor 属性。  使用css 给每一个单元格加上背景颜色，只需要在最前面写一段css代码，所有的单元格都有背景颜色了。这是一种分层设计的思想，css把和颜色，大小位置等信息剥离到`<style>`中，而html只用关心提供什么样的内容就行了  
 

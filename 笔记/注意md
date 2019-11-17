@@ -25,3 +25,21 @@ windows 移动中心（win+x）
 PID=4的 system 进程占用了80端口。打开RegEdit（注册表），在开始搜索那里输入 RegEdit，找到`HKEY_LOCAL_MACHINE/SYSTEM/CurrentControlSet/Services/HTTP`然后回车，找到一个 DWORD值 Start，右击修改将数值数据改为0（原来为3）。重启电脑，System 进程将不会占用80端口。
 
 <https://www.cnblogs.com/kathy920617/p/6655810.html>
+
+### 查看电脑 ip 地址
+
+1. 进入命令窗口之后，输入：ipconfig，在以太网适配器中的 IPv4 地址就是电脑 ip 地址
+2. 进入“网络和共享中心”，点击已链接的网络就进入了“网络连接状态”窗口，点击“详细信息”，在详细列表里的 IPv4 地址就是电脑 ip 地址
+
+wampserver 打开页面中文乱码：保存文件类型为 UTF-8
+
+### Win10 远程连接桌面
+
+在打开的 Windows10 运行窗口中，输入命令 mstsc 。然后输入 IP 地址、 用户名（administrator）和密码（没有密码就设置一个）
+
+### apache开启.htaccess
+
+打开httpd.conf（APACHE目录的CONF目录里面），用文本编辑器器打开后
+
+1. 查找 AllowOverride None，改为  AllowOverride All 
+2. 查找 mod_rewrite，去掉前面的注释 （#）

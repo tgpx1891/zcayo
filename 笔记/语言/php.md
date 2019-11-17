@@ -378,7 +378,7 @@ echo strpos("Hello world!","world");      // 会返回第一个匹配的字符�
 | 函数                                                         | 描述                                                         |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | addcslashes()                                                | 返回在指定的字符前添加反斜杠的字符串。addcslashes("Hello World!","W")，结果为Hello \World! |
-| [addslashes()](https://www.runoob.com/php/func-string-addslashes.html) | 返回在预定义的字符前添加反斜杠的字符串。addslashes('What does "yolo" mean?')，What does \"yolo\" mean? |
+| addslashes()                                                 | 返回在预定义的字符前添加反斜杠的字符串。addslashes('What does "yolo" mean?')，What does \"yolo\" mean? |
 | [bin2hex()](https://www.runoob.com/php/func-string-bin2hex.html) | 把 ASCII 字符的字符串转换为十六进制值。                      |
 | [chop()](https://www.runoob.com/php/func-string-chop.html)   | 移除字符串右侧的空白字符或其他字符。chop("Hello World!","World!")，"Hello " |
 | [chr()](https://www.runoob.com/php/func-string-chr.html)     | 从指定 ASCII 值返回字符。                                    |
@@ -397,7 +397,7 @@ echo strpos("Hello world!","world");      // 会返回第一个匹配的字符�
 | [hebrevc()](https://www.runoob.com/php/func-string-hebrevc.html) | 把希伯来（Hebrew）文本转换为可见文本，并把新行（\n）转换为 `<br>`。 |
 | [hex2bin()](https://www.runoob.com/php/func-string-hex2bin.html) | 把十六进制值的字符串转换为 ASCII 字符。                      |
 | [html_entity_decode()](https://www.runoob.com/php/func-string-html-entity-decode.html) | 把 HTML 实体转换为字符。                                     |
-| [htmlentities()](https://www.runoob.com/php/func-string-htmlentities.html) | 把字符转换为 HTML 实体。                                     |
+| htmlentities()                                               | 把字符转换为 HTML 实体。                                     |
 | [htmlspecialchars_decode()](https://www.runoob.com/php/func-string-htmlspecialchars-decode.html) | 把一些预定义的 HTML 实体转换为字符。                         |
 | [htmlspecialchars()](https://www.runoob.com/php/func-string-htmlspecialchars.html) | 把一些预定义的字符转换为 HTML 实体。                         |
 | [implode()](https://www.runoob.com/php/func-string-implode.html) | 返回一个由数组元素组合成的字符串。                           |
@@ -406,7 +406,7 @@ echo strpos("Hello world!","world");      // 会返回第一个匹配的字符�
 | [levenshtein()](https://www.runoob.com/php/func-string-levenshtein.html) | 返回两个字符串之间的 Levenshtein 距离。                      |
 | [localeconv()](https://www.runoob.com/php/func-string-localeconv.html) | 返回本地数字及货币格式信息。                                 |
 | [ltrim()](https://www.runoob.com/php/func-string-ltrim.html) | 移除字符串左侧的空白字符或其他字符。                         |
-| [md5()](https://www.runoob.com/php/func-string-md5.html)     | 计算字符串的 MD5 散列。                                      |
+| md5()                                                        | 计算字符串的 MD5 散列。                                      |
 | [md5_file()](https://www.runoob.com/php/func-string-md5-file.html) | 计算文件的 MD5 散列。                                        |
 | [metaphone()](https://www.runoob.com/php/func-string-metaphone.html) | 计算字符串的 metaphone 键。                                  |
 | [money_format()](https://www.runoob.com/php/func-string-money-format.html) | 返回格式化为货币字符串的字符串。                             |
@@ -518,6 +518,41 @@ asort($age);         // 根据关联数组（普通数组也可）的值，对�
 ksort($age);         // 根据关联数组的键，对数组进行升序排列
 arsort($age);         // 根据关联数组的值，对数组进行降序排列
 krsort($age);         // 根据关联数组的键，对数组进行降序排列
+?>
+```
+
+##### 多维数组
+
+```php
+<?php
+$cars = array
+(
+    array("Volvo",100,96),
+    array("BMW",60,59),
+    array("Toyota",110,100)
+);
+$sites = array
+(
+    "runoob"=>array
+    (
+        "菜鸟教程",
+        "http://www.runoob.com"
+    ),
+    "google"=>array
+    (
+        "Google 搜索",
+        "http://www.google.com"
+    ),
+    "taobao"=>array
+    (
+        "淘宝",
+        "http://www.taobao.com"
+    )
+);
+print("<pre>");          // 格式化输出数组
+print_r($sites);
+print("</pre>");
+echo $cars['runoob'][0] . '地址为：' . $sites['runoob'][1];          // 显示上面数组中的某个值
 ?>
 ```
 
@@ -684,7 +719,34 @@ echo "1 + 16 = " . add(1,16);
 // 结果为 My name is Kai Jim Refsnes.
 ```
 
-### PHP 命名空间
+#### date() 函数
+
+date() 函数用于格式化时间/日期，时间戳是一个字符序列，表示一定的事件发生的日期/时间
+
+```php
+string date ( string $format [, int $timestamp ] )
+// format-必需，规定时间戳的格式。timestamp-可选，规定时间戳，默认是当前的日期和时间
+<?php
+echo date("Y/m/d") . "<br>";
+echo date("Y.m.d") . "<br>";
+echo date("Y-m-d");
+?>
+```
+
+格式字串可以识别以下 format 参数的字符串：<https://www.runoob.com/php/php-date.html>
+
+#### error_log() 函数
+
+error_log() 函数向服务器错误记录、文件或远程目标发送一个错误。如果成功该函数返回 TRUE，如果失败该函数返回 FALSE。语法为`error_log(error,type,destination,headers)`
+
+| 参数        | 描述                                                         |
+| :---------- | :----------------------------------------------------------- |
+| error       | 必需，要记录的错误消息                                       |
+| type        | 可选，规定错误记录的类型。 可能的记录类型：0 - 默认，根据在 php.ini 文件中的 error_log 配置，错误被发送到服务器日志系统或文件。1 - 错误被发送到 destination 参数中的地址，只有该类型使用 headers 参数。2 - 通过 PHP debugging 连接来发送错误，该选项只在 PHP 3 中可用。3 - 错误发送到文件目标字符串 |
+| destination | 可选，规定向何处发送错误消息，该参数的值依赖于 "type" 参数的值 |
+| headers     | 可选，只在 "type" 参数为 1 时使用。规定附加的头部，比如 From, Cc 以及 Bcc。附加头部由 CRLF (\r\n) 分隔。注意：在发送电子邮件时，必须包含 From 头部，可以在 php.ini 文件中或者通过此参数设置 |
+
+### 命名空间
 
 命名空间可以解决以下两类问题：
 
@@ -938,7 +1000,7 @@ A\B::foo();   // 调用命名空间 "A\A" 中定义的类 "B" 的 "foo" 方法�
 4. 非限定类名根据当前的导入规则在编译时转换（用全名代替短的导入名称）。例如，如果命名空间 *A\B\C* 导入为C，则 *new C()* 被转换为 *new A\B\C()* 
 5. 在命名空间内部（例如A\B），对非限定名称或限定名称类（非完全限定名称）的调用是在运行时解析的。例如对函数 foo() 的调用是这样解析的：在当前命名空间中查找名为 *A\B\foo()* 的函数，然后尝试查找并调用 *全局(global)* 空间中的函数 *foo()*
 
-### PHP 面向对象
+### 面向对象
 
 在面向对象的程序设计（Object-oriented programming，OOP）中，对象是一个由信息及对信息进行处理的描述所组成的整体，是对现实世界的抽象。对象的主要三个特性：行为、形态和表示
 
@@ -1188,3 +1250,821 @@ class SubClass extends BaseClass {
 `::`是作用域限定操作符它用来置顶类中不同作用域的级别，左边是作用域右边是访问作用域的成员。`::`用于静态上下文，即当某些方法或属性声明为静态时。还可以在调用父类的方法/属性时，动态上下文中使用。在 PHP 中定义的作用域有 self 和 parent 两种（在 PHP6 中提供了 static 作用域），self 表示当前类的作用域，与 this 不同的是它不表示类的某个特定实例，在类之外的代码中不能使用 self，而且它不能识别自己在继承中层次的位置。也就是说，当在扩展类中使用self 时，它调用的不是父类的方法，而是扩展类的重载的方法
 
 PHP 5 新增了一个 final 关键字。如果父类中的方法被声明为 final，则子类无法覆盖该方法。如果一个类被声明为 final，则不能被继承。PHP 不会在子类的构造方法中自动的调用父类的构造方法。要执行父类的构造方法，需要在子类的构造方法中调用 `parent::__construct()` 
+
+### 表单
+
+当处理 HTML 表单时，PHP 能把来自 HTML 页面中的表单元素自动变成可供 PHP 脚本使用
+
+```php+HTML
+<?php
+// 可以通过 select 的 name 属性获取下拉菜单的值
+$q = isset($_GET['q'])? htmlspecialchars($_GET['q']) : '';    // 把预定义的字符转换为 HTML 实体
+if($q) {
+        if($q =='RUNOOB') {
+                echo '菜鸟教程<br>http://www.runoob.com';
+        } else if($q =='GOOGLE') {
+                echo 'Google 搜索<br>http://www.google.com';
+        } else if($q =='TAOBAO') {
+                echo '淘宝<br>http://www.taobao.com';
+        }
+} else {
+?>
+<form action="" method="get">         <!-- action 属性值为空表示提交到当前脚本 -->
+    <select name="q">
+    <option value="">选择一个站点:</option>
+    <option value="RUNOOB">Runoob</option>
+    <option value="GOOGLE">Google</option>
+    <option value="TAOBAO">Taobao</option>
+    </select>
+    <input type="submit" value="提交">
+</form>
+<!--  单选按钮表单中 name 属性的值是一致的，value 值是不同的 -->
+<form action="" method="get"> 
+    <input type="radio" name="q" value="RUNOOB" />Runoob
+    <input type="radio" name="q" value="GOOGLE" />Google
+    <input type="radio" name="q" value="TAOBAO" />Taobao
+    <input type="submit" value="提交">
+</form>
+<?php
+}
+?>
+```
+
+如果下拉菜单是多选的（ multiple="multiple"），我们可以通过将设置 `select name="q[]"` 以数组的方式获取
+
+```php+HTML
+<?php
+$q = isset($_POST['q'])? $_POST['q'] : '';
+if(is_array($q)) {
+    $sites = array(
+            'RUNOOB' => '菜鸟教程: http://www.runoob.com',
+            'GOOGLE' => 'Google 搜索: http://www.google.com',
+            'TAOBAO' => '淘宝: http://www.taobao.com',
+    );
+    foreach($q as $val) {
+        echo $sites[$val] . PHP_EOL;
+    }
+      
+} else {
+?>
+<form action="" method="post"> 
+    <select multiple="multiple" name="q[]">
+    <option value="">选择一个站点:</option>
+...
+<!-- 复选框 -->
+<form action="" method="post"> 
+    <input type="checkbox" name="q[]" value="RUNOOB"> Runoob<br> 
+    <input type="checkbox" name="q[]" value="GOOGLE"> Google<br> 
+    <input type="checkbox" name="q[]" value="TAOBAO"> Taobao<br>
+    <input type="submit" value="提交">
+</form>
+```
+
+我们应该尽可能的对用户的输入进行验证（通过客户端脚本）。浏览器验证速度更快，并且可以减轻服务器的压力。如果用户输入需要插入数据库，您应该考虑使用服务器验证。在服务器验证表单的一种好的方式是，把表单的数据传给当前页面（异步提交的方式更好），而不是跳转到不同的页面。这样用户就可以在同一张表单页面得到错误信息。用户也就更容易发现错误了
+
+#### 表单验证
+
+```php+HTML
+<?php
+// 定义变量并默认设置为空值
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $comment = $website = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+    if (empty($_POST["name"]))
+    {
+        $nameErr = "名字是必需的";
+    }
+    else
+    {
+        $name = test_input($_POST["name"]);
+        if (!preg_match("/^[a-zA-Z ]*$/",$name))         // 检测名字是否只包含字母跟空格
+        {
+            $nameErr = "只允许字母和空格"; 
+        }
+    }
+    if (empty($_POST["email"]))
+    {
+      $emailErr = "邮箱是必需的";
+    }
+    else
+    {
+        $email = test_input($_POST["email"]);
+        if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$email))         // 检测邮箱是否合法
+        {
+            $emailErr = "非法邮箱格式"; 
+        }
+    }
+    if (empty($_POST["website"]))
+    {
+        $website = "";
+    }
+    else
+    {
+        $website = test_input($_POST["website"]);
+        // 检测 URL 地址是否合法
+        if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website))
+        {
+            $websiteErr = "非法的 URL 的地址"; 
+        }
+    }
+    if (empty($_POST["comment"]))
+    {
+        $comment = "";
+    }
+    else
+    {
+        $comment = test_input($_POST["comment"]);
+    }
+    if (empty($_POST["gender"]))
+    {
+        $genderErr = "性别是必需的";
+    }
+    else
+    {
+        $gender = test_input($_POST["gender"]);
+    }
+}
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);          // 删除由 addslashes() 函数添加的反斜杠
+    $data = htmlspecialchars($data);          // 把一些预定义的字符转换为 HTML 实体
+    return $data;
+}
+?>
+<p><span class="error">* 必需字段。</span></p>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+   名字: <input type="text" name="name" value="<?php echo $name;?>">
+   <span class="error">* <?php echo $nameErr;?></span>
+   <br><br>
+   E-mail: <input type="text" name="email" value="<?php echo $email;?>">
+   <span class="error">* <?php echo $emailErr;?></span>
+   <br><br>
+   网址: <input type="text" name="website" value="<?php echo $website;?>">
+   <span class="error"><?php echo $websiteErr;?></span>
+   <br><br>
+   备注: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
+   <br><br>
+   性别:
+   <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?>  value="female">女         <!-- 设置好checked属性 -->
+   <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?>  value="male">男
+   <span class="error">* <?php echo $genderErr;?></span>
+   <br><br>
+   <input type="submit" name="submit" value="Submit"> 
+</form>
+<?php
+echo "<h2>您输入的内容是:</h2>";
+echo $name;
+echo "<br>";
+echo $email;
+echo "<br>";
+echo $website;
+echo "<br>";
+echo $comment;
+echo "<br>";
+echo $gender;
+?>
+```
+
+$_SERVER["PHP_SELF"] 会发送表单数据到当前页面，而不是跳转到不同的页面。preg_match() 函数用于进行正则表达式匹配，成功返回 1 ，否则返回 0 。htmlspecialchars() 函数把一些预定义的字符转换为 HTML 实体。预定义的字符是：& （和号） 成为 \&amp;，" （双引号） 成为 \&quot;，' （单引号） 成为 \&#039;，< （小于） 成为 \&lt;，>（大于） 成为 \&gt;
+
+##### 表单中需引起注重的地方
+
+XSS又叫 CSS (Cross-Site Script) ，跨站脚本攻击。恶意攻击者往 Web 页面里插入恶意 html 代码，当用户浏览该页之时，嵌入其中 Web 里面的 html 代码会被执行，从而达到恶意用户的特殊目的。当黑客使用跨网站脚本的 HTTP 链接来攻击时，$SERVER["PHP_SELF"] 服务器变量也会被植入脚本。原因就是跨网站脚本是附在执行文件的路径后面的，因此$SERVER["PHP_SELF"]的字符串就会包含 HTTP 链接后面的 JavaScript 程序代码
+
+```
+http://www.runoob.com/test_form.php/%22%3E%3Cscript%3Ealert('hacked')%3C/script%3E
+// 以上的 URL 将被解析为如下代码并执行
+<form method="post" action="test_form.php/"><script>alert('hacked')</script>
+// 当页面载入时会执行该Javascript代码（用户会看到弹出框）
+```
+
+$_SERVER["PHP_SELF"] 可以通过 htmlspecialchars() 函数来避免被利用
+
+```
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+// 结果将输出如下所示
+<form method="post" action="test_form.php/&quot;&gt;&lt;script&gt;alert('hacked')&lt;/script&gt;">
+// 当我们使用 htmlspecialchars() 函数时，在用户尝试提交以下文本域
+<script>location.href('http://www.runoob.com')</script>
+// 该代码将不会被执行，因为它会被保存为HTML转义代码
+&lt;script&gt;location.href('http://www.runoob.com')&lt;/script&gt;
+```
+
+可以通过`$_SERVER["REQUEST_METHOD"]`来检测表单是否被提交 。如果 REQUEST_METHOD 是 POST,，表单将被提交——数据将被验证。如果表单未提交将跳过验证并显示空白
+
+```php
+<?php
+$name = $email = $gender = $comment = $website = "";// 定义变量并默认设置为空值
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+  $name = test_input($_POST["name"]);
+  $email = test_input($_POST["email"]);
+  $website = test_input($_POST["website"]);
+  $comment = test_input($_POST["comment"]);
+  $gender = test_input($_POST["gender"]);
+}
+?>
+```
+
+- 在 PHP 中，预定义的 $GET 变量用于收集来自 method="get" 的表单中的值，表单域的名称会自动成为 $GET 数组中的键。因为变量显示在 URL 中，因此可以在收藏夹中收藏该页面。在某些情况下，这是很有用的。GET 方法不适合大型的变量值。它的值是不能超过 2000 个字符的。
+- 预定义的 $_POST 变量用于收集来自 method="post" 的表单中的值，默认情况下，POST 方法的发送信息的量最大值为 8 MB（可通过设置 php.ini 文件中的 post_max_size 进行更改）。由于变量不显示在 URL 中，所以无法把页面加入书签
+- 预定义的 $_REQUEST 变量包含了 $_GET、$_POST 和 $_COOKIE 的内容，可用来收集通过 GET 和 POST 方法发送的表单数据
+
+### 包含文件
+
+在 PHP 中，您可以在服务器执行 PHP 文件之前在该文件中插入一个文件的内容。include 和 require 语句用于在执行流中插入写在其他文件中的有用的代码。include 和 require 除了处理错误的方式不同之外，在其他方面都是相同的：require 生成一个致命错误（E_COMPILE_ERROR），在错误发生后脚本会停止执行；include 生成一个警告（E_WARNING），在错误发生后脚本会继续执行。包含文件省去了大量的工作。这意味着您可以为所有网页创建标准页头、页脚或者菜单文件。然后，在页头需要更新时，您只需更新这个页头包含文件即可
+
+```php+HTML
+<?php         // vars.php 文件	
+$color='red';
+$car='BMW';
+?>
+<body>
+<h1>欢迎来到我的主页!</h1>
+<?php 
+include 'vars.php';
+echo "I have a $color $car"; 
+?>
+</body>
+```
+
+### 文件处理
+
+```php
+<?php
+$file=fopen("welcome.txt","r") or exit("Unable to open file!");
+while(!feof($file))         // feof() 函数检测是否已到达文件末尾（EOF）
+{   // fgets() 函数用于从文件中逐行读取文件，在调用该函数之后，文件指针会移动到下一行
+    echo fgets($file). "<br>";      
+}
+while (!feof($file))
+{
+    echo fgetc($file);         // fgetc() 函数用于从文件中逐字符地读取文件
+}
+fclose($file);
+?>
+```
+
+Filesystem 参考手册：<https://www.runoob.com/php/php-ref-filesystem.html>
+
+如果 fopen() 函数无法打开指定文件，则返回 0 (false)。函数的第一个参数含有要打开的文件的名称，第二个参数规定了使用哪种模式来打开文件。在 w 、a 和 x 模式下，您无法读取打开的文件！
+
+| 模式 | 描述                                                         |
+| :--- | :----------------------------------------------------------- |
+| r    | 只读，在文件的开头开始。                                     |
+| r+   | 读/写，在文件的开头开始。                                    |
+| w    | 只写，打开并清空文件的内容；如果文件不存在，则创建新文件。   |
+| w+   | 读/写，打开并清空文件的内容；如果文件不存在，则创建新文件。  |
+| a    | 追加，打开并向文件末尾进行写操作，如果文件不存在，则创建新文件。 |
+| a+   | 读/追加，通过向文件末尾写内容，来保持文件内容。              |
+| x    | 只写，创建新文件，如果文件已存在，则返回 FALSE 和一个错误。  |
+| x+   | 读/写，创建新文件，如果文件已存在，则返回 FALSE 和一个错误   |
+
+### 文件上传
+
+通过 PHP，可以把文件上传到服务器
+
+```php+HTML
+<!-- form.html  -->
+<form action="upload_file.php" method="post" enctype="multipart/form-data">
+    <label for="file">文件名：</label>
+    <input type="file" name="file" id="file"><br>
+    <input type="submit" name="submit" value="提交">
+</form>
+<!-- upload_file.php -->
+<?php
+$allowedExts = array("gif", "jpeg", "jpg", "png");         // 允许上传的图片后缀
+$temp = explode(".", $_FILES["file"]["name"]);
+$extension = end($temp);        // 获取文件后缀名
+if ((($_FILES["file"]["type"] == "image/gif")
+|| ($_FILES["file"]["type"] == "image/jpeg")
+|| ($_FILES["file"]["type"] == "image/jpg")
+|| ($_FILES["file"]["type"] == "image/pjpeg")
+|| ($_FILES["file"]["type"] == "image/x-png")
+|| ($_FILES["file"]["type"] == "image/png"))
+&& ($_FILES["file"]["size"] < 204800)    // 小于 200 kb
+&& in_array($extension, $allowedExts))
+{
+    if ($_FILES["file"]["error"] > 0)
+    {
+        echo "错误：: " . $_FILES["file"]["error"] . "<br>";
+    }
+    else
+    {
+        echo "上传文件名: " . $_FILES["file"]["name"] . "<br>";
+        echo "文件类型: " . $_FILES["file"]["type"] . "<br>";
+        echo "文件大小: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+        echo "文件临时存储的位置: " . $_FILES["file"]["tmp_name"];
+// 判断当期目录下的 upload 目录是否存在该文件，如果没有 upload 目录，你需要创建它，upload 目录权限为 777
+        if (file_exists("upload/" . $_FILES["file"]["name"]))
+        {
+            echo $_FILES["file"]["name"] . " 文件已经存在。 ";
+        }
+        else
+        {
+            // 如果 upload 目录不存在该文件则将文件上传到 upload 目录下
+            move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $_FILES["file"]["name"]);
+            echo "文件存储在: " . "upload/" . $_FILES["file"]["name"];
+        }
+    }
+}
+else
+{
+    echo "非法的文件格式";
+}
+?>
+```
+
+\<form> 标签的 enctype 属性规定了在提交表单时要使用哪种内容类型。在表单需要二进制数据时，比如文件内容，请使用 "multipart/form-data"。\<input> 标签的 type="file" 属性规定了应该把输入作为文件来处理。举例来说，当在浏览器中预览时，会看到输入框旁边有一个浏览按钮
+
+### Cookie 和 session
+
+cookie 是一种服务器留在用户计算机上的小文件。每当同一台计算机通过浏览器请求页面时，这台计算机将会发送 cookie。 常用于识别用户，通过 PHP，您能够创建并取回 cookie 的值
+
+```php+HTML
+<html>          <!-- setcookie() 函数必须位于 <html> 标签之前 -->
+<?php
+    // 创建名为 "user" 的 cookie，并为它赋值 "runoob"，此 cookie 在一小时后过期
+    setcookie("user", "runoob", time()+3600);
+    $expire=time()+60*60*24*30;
+    setcookie("user", "runoob", $expire);         // 过期时间一个月
+    echo $_COOKIE["user"];         // 输出 cookie 值
+    print_r($_COOKIE);          // 查看所有 cookie
+    if (isset($_COOKIE["user"]))
+    echo "欢迎 " . $_COOKIE["user"] . "!<br>";          // 使用 isset() 函数来确认是否已设置了 cookie
+    setcookie("user", "", time()-3600);         // 设置 cookie 过期时间为过去 1 小时
+?>
+</html>
+```
+
+在发送 cookie 时，cookie 的值会自动进行 URL 编码，在取回时进行自动解码。为防止 URL 编码，可以使用 setrawcookie() 取而代之。当删除 cookie 时，您应当使过期日期变更为过去的时间点
+
+session 变量用于存储关于用户会话（session）的信息，或者更改用户会话（session）的设置。Session 变量存储单一用户的信息，并且对于应用程序中的所有页面都是可用的。然而，会话信息是临时的，在用户离开网站后将被删除。如果您需要永久存储信息，可以把数据存储在数据库中。Session 的工作机制是：为每个访客创建一个唯一的 id (UID)，并基于这个 UID 来存储变量。UID 存储在 cookie 中，或者通过 URL 进行传导
+
+```php
+<?php 
+session_start();         // session_start() 函数必须位于 <html> 标签之前
+$_SESSION['views']=1;         // 存储 session 数据
+if(isset($_SESSION['views']))
+{
+    unset($_SESSION['views']);         // 释放指定的 session 变量
+}
+session_destroy();         // 重置 session，将失去所有已存储的 session 数据
+?>         
+<html>
+<body>
+<?php
+echo "浏览量：". $_SESSION['views'];         // 检索 session 数据
+?>
+</body>
+</html>
+```
+
+### 发送电子邮件
+
+mail() 函数用于从脚本中发送电子邮件，语法：`mail(to,subject,message,headers,parameters)`
+
+- to 为 email 接收者，subject 为 email 的主题（该参数不能包含任何新行字符）
+- message 定义要发送的消息，应使用 LF (\n) 来分隔各行，每行应该限制在 70 个字符内
+- headers 规定附加的标题，比如 From、Cc 和 Bcc，应当使用 CRLF (\r\n) 分隔附加的标题
+- parameters 对邮件发送程序规定额外的参数
+
+PHP 运行邮件函数需要一个已安装且正在运行的邮件系统(如：sendmail、postfix、qmail等)。所用的程序通过在 php.ini 文件中的配置设置进行定义。
+
+| 名称          | 默认        | 描述                                                         | 可更改         |
+| :------------ | :---------- | :----------------------------------------------------------- | :------------- |
+| SMTP          | "localhost" | Windows 专用：SMTP 服务器的 DNS 名称或 IP 地址。             | PHP_INI_ALL    |
+| smtp_port     | "25"        | Windows 专用：SMTP 端口号。自 PHP 4.3 起可用。               | PHP_INI_ALL    |
+| sendmail_from | NULL        | Windows 专用：规定在由 PHP 发送的电子邮件中使用的 "from" 地址。 | PHP_INI_ALL    |
+| sendmail_path | NULL        | Unix 系统专用：规定 sendmail 程序的路径（通常 /usr/sbin/sendmail 或 /usr/lib/sendmail）。 | PHP_INI_SYSTEM |
+
+发送电子邮件的最简单的方式是发送一封文本 email
+
+```php
+<?php
+$to = "someone@example.com";         // 邮件接收者
+$subject = "参数邮件";                // 邮件标题
+$message = "Hello! 这是邮件的内容。";  // 邮件正文
+$from = "someonelse@example.com";   // 邮件发送者
+$headers = "From:" . $from;         // 头部信息设置
+mail($to,$subject,$message,$headers);
+echo "邮件已发送";
+?>
+<?php
+    if (isset($_REQUEST['email'])) { 			// 如果接收到邮箱参数则发送邮件
+        $email = $_REQUEST['email'] ;
+        $subject = $_REQUEST['subject'] ;
+        $message = $_REQUEST['message'] ;
+        mail("someone@example.com", $subject,
+             $message, "From:" . $email);
+        echo "邮件发送成功";
+    } else { 			// 如果没有邮箱参数则显示表单
+        echo "<form method='post' action='mailform.php'>
+            Email: <input name='email' type='text'><br>
+            Subject: <input name='subject' type='text'><br>
+            Message:<br>
+            <textarea name='message' rows='15' cols='40'>
+            </textarea><br>
+            <input type='submit'>
+            </form>";
+	}
+?>
+```
+
+首先，检查是否填写了邮件输入框。如果未填写（比如在页面被首次访问时），输出 HTML 表单；如果已填写（在表单被填写后），从表单发送电子邮件。当填写完表单点击提交按钮后，页面重新载入，可以看到邮件输入被重置，同时显示邮件发送成功的消息。ezmlm_hash() 函数计算 EZMLM 邮件列表系统所需的散列值
+
+以上代码存在的问题是，未经授权的用户可通过输入表单在邮件头部插入数据
+
+```
+someone@example.com%0ACc:person2@example.com
+%0ABcc:person3@example.com,person3@example.com,
+anotherperson4@example.com,person5@example.com
+%0ABTo:person6@example.com
+```
+
+假如用户在表单中的输入框内加入如下文本到电子邮件中，与往常一样，mail() 函数把上面的文本放入邮件头部，那么现在头部有了额外的 Cc:、Bcc: 和 To: 字段。当用户点击提交按钮时，这封 e-mail 会被发送到上面所有的地址。防止 e-mail 注入的最好方法是对输入进行验证
+
+```php
+<?php
+function spamcheck($field)
+{
+    // FILTER_SANITIZE_EMAIL 过滤器从字符串中删除电子邮件的非法字符，使用 FILTER_SANITIZE_EMAIL
+    $field=filter_var($field, FILTER_SANITIZE_EMAIL);
+    // FILTER_VALIDATE_EMAIL 过滤器验证电子邮件地址的值，使用 FILTER_VALIDATE_EMAIL
+    if(filter_var($field, FILTER_VALIDATE_EMAIL))
+    {
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
+}
+
+if (isset($_REQUEST['email']))
+{
+    // 判断邮箱是否合法
+    $mailcheck = spamcheck($_REQUEST['email']);
+    if ($mailcheck==FALSE)
+    {
+        echo "非法输入";
+    }
+    else
+    {    
+        // 发送邮件
+        ...
+    }
+}
+else
+{ 
+    // 如果没有邮箱参数则显示表单
+    ...
+}
+?>
+```
+
+###  错误处理
+
+在 PHP 中，默认的错误处理很简单。一条错误消息会被发送到浏览器，这条消息带有文件名、行号以及描述错误的消息。现在，如果文件不存在，您会得到类似这样的错误消息：文件不存在
+
+```php
+<?php
+    if(!file_exists("welcome.txt"))
+{
+    die("文件不存在");
+}
+else
+{
+    $file=fopen("welcome.txt","r");
+}
+function customError($errno, $errstr)				// 错误处理函数
+{
+    echo "<b>Error:</b> [$errno] $errstr<br>"; // 输出结果 Error: [8] Undefined variable: test
+    echo "脚本结束";
+    die();
+}
+set_error_handler("customError");			// 设置错误处理函数
+echo($test);			// 触发错误
+?>
+```
+
+上面的代码有一个简单的错误处理函数，当它被触发时，它会取得错误级别和错误消息。然后它会输出错误级别和消息，并终止脚本。针对所有错误来使用我们自定义的错误处理程序，仅需要一个参数，可以添加第二个参数来规定错误级别。
+
+#### 错误报告级别
+
+这些错误报告级别是用户自定义的错误处理程序处理的不同类型的错误
+
+| 值   | 常量                | 描述                                                         |
+| :--- | :------------------ | :----------------------------------------------------------- |
+| 2    | E_WARNING           | 非致命的 run-time 错误，不暂停脚本执行                       |
+| 8    | E_NOTICE            | run-time 通知，在脚本发现可能有错误时发生，但也可能在脚本正常运行时发生 |
+| 256  | E_USER_ERROR        | 致命的用户生成的错误，这类似于程序员使用 PHP 函数 trigger_error() 设置的 E_ERROR |
+| 512  | E_USER_WARNING      | 非致命的用户生成的警告，这类似于程序员使用 PHP 函数 trigger_error() 设置的 E_WARNING |
+| 1024 | E_USER_NOTICE       | 用户生成的通知，这类似于程序员使用 PHP 函数 trigger_error() 设置的 E_NOTICE |
+| 4096 | E_RECOVERABLE_ERROR | 可捕获的致命错误。类似 E_ERROR，但可被用户定义的处理程序捕获（参见 set_error_handler()） |
+| 8191 | E_ALL               | 所有错误和警告（在 PHP 5.4 中，E_STRICT 成为 E_ALL 的一部分） |
+
+脚本中用户输入数据的位置，当用户的输入无效时触发错误是很有用的。在 PHP 中，这个任务由 trigger_error() 函数完成。您可以在脚本中任何位置触发错误，通过添加的第二个参数，您能够规定所触发的错误类型。
+
+- E_USER_ERROR - 致命的用户生成的 run-time 错误，错误无法恢复，脚本执行被中断。
+- E_USER_WARNING - 非致命的用户生成的 run-time 警告，脚本执行不被中断。
+- E_USER_NOTICE - 默认，用户生成的 run-time 通知，在脚本发现可能有错误时发生，但也可能在脚本正常运行时发生
+
+```php
+<?php
+function customError($errno, $errstr)
+{
+    echo "<b>Error:</b> [$errno] $errstr<br>";
+    echo "已通知网站管理员";
+    error_log("Error: [$errno] $errstr",1,	// 1 表示把错误被发送到 destination（第三个） 参数中的地址
+    "someone@example.com","From: webmaster@example.com");
+}
+set_error_handler("customError",E_USER_WARNING);
+$test=2;
+if ($test>1)
+{	
+    trigger_error("变量值必须小于等于 1");		/* 输出结果 Notice: 变量值必须小于等于 1 in
+    										   /www/test/runoob.php on line 5 */
+    trigger_error("变量值必须小于等于 1",E_USER_WARNING);	/* Error: [512] 变量值必须小于等于 1
+    										   			  脚本结束 */
+}
+?>
+```
+
+如果 "test" 变量大于 "1"，则发生 E_USER_WARNING 错误。如果发生了 E_USER_WARNING，我们将使用我们自定义的错误处理程序并结束脚本。接收自以上代码的邮件为 `Error: [512] 变量值必须小于等于 1`，这个方法不适合所有的错误。常规错误应当通过使用默认的 PHP 记录系统在服务器上进行记录
+
+### 异常处理
+
+异常用于在指定的错误发生时改变脚本的正常流程。当异常被抛出时，其后的代码不会继续执行，PHP 会尝试查找匹配的 "catch" 代码块。如果异常没有被捕获，而且又没用使用 set_exception_handler() 作相应的处理的话，那么将发生一个严重的错误（致命错误），并且输出 "Uncaught Exception" （未捕获异常）的错误消息
+
+```php
+<?php
+// 创建一个有异常处理的函数
+function checkNum($number)
+{
+    if($number>1)
+    {
+        throw new Exception("变量值必须小于等于 1");
+    }
+        return true;
+}
+// 在 try 块 触发异常
+try
+{
+    checkNum(2);
+    // 如果抛出异常，以下文本不会输出
+    echo '如果输出该内容，说明 $number 变量';
+}
+// 捕获异常
+catch(Exception $e)
+{
+    echo 'Message: ' .$e->getMessage();
+}
+?>
+```
+
+为了遵循 "每个 throw 必须对应一个 catch" 的原则，可以设置一个顶层的异常处理器来处理漏掉的错误。可以为一段脚本使用多个异常，来检测多种情况。可以使用多个 if..else 代码块，或一个 switch 代码块，或者嵌套多个异常。这些异常能够使用不同的 exception 类，并返回不同的错误消息
+
+```php
+<?php
+class customException extends Exception
+{
+    public function errorMessage()
+    {
+        // 错误信息，getMessage()就是传进去的参数
+        $errorMsg = '错误行号 '.$this->getLine().' in '.$this->getFile()
+        .': <b>'.$this->getMessage().'</b> 不是一个合法的 E-Mail 地址';
+        return $errorMsg;
+    }
+}
+$email = "someone@example...com";
+try
+{
+    if(filter_var($email, FILTER_VALIDATE_EMAIL) === FALSE)
+    {
+        throw new customException($email);
+    }
+    // 检测 "example" 是否在邮箱地址中
+    if(strpos($email, "example") !== FALSE)
+    {
+        throw new Exception("$email 是 example 邮箱");
+    }
+    try				// 重新抛出异常代码
+    {
+        // 检测 "example" 是否在邮箱地址中
+        if(strpos($email, "example") !== FALSE)
+        {
+            // 如果是个不合法的邮箱地址，抛出异常
+            throw new Exception($email);
+        }
+    }
+    catch(Exception $e)
+    {
+        // 重新抛出异常
+        throw new customException($email);
+    }
+} 
+catch (customException $e)
+{
+echo $e->errorMessage();
+}
+catch(Exception $e)
+{
+    echo $e->getMessage();
+}
+?>
+/* 输出结果（子类）：错误行号 21 in /box/main.php: someone@example...com 不是一个合法的 E-Mail 地址
+   输出结果（父类）：someone@example.com 是 example 邮箱
+*/
+   
+```
+
+子类异常可以作为父类异常可以处理，但是父类异常不能作为子类异常处理。有时，当异常被抛出时，您也许希望以不同于标准的方式对它进行处理。可以在一个 "catch" 代码块中再次抛出异常。如果在当前的 "try" 代码块中异常没有被捕获，则它将在更高层级上查找 catch 代码块
+
+```php
+<?php
+function myException($exception)
+{
+    echo "<b>Exception:</b> " , $exception->getMessage();
+}
+set_exception_handler('myException');			// 设置处理所有未捕获异常的用户定义函数
+throw new Exception('Uncaught Exception occurred');  // 结果 Exception: Uncaught Exception occurred
+?>
+```
+
+###  过滤器
+
+ 过滤器用于验证和过滤来自非安全来源的数据，比如用户的输入。几乎所有的 Web 应用程序都依赖外部的输入。这些数据通常来自用户或其他应用程序（比如 web 服务）。通过使用过滤器，您能够确保应用程序获得正确的输入类型
+
+- filter_var() - 通过一个指定的过滤器来过滤单一的变量
+- filter_var_array() - 通过相同的或不同的过滤器来过滤多个变量
+- filter_input - 获取一个输入变量，并对它进行过滤
+- filter_input_array - 获取多个输入变量，并通过相同的或不同的过滤器对它们进行过滤
+
+```php
+<?php
+$int = 123;
+if(!filter_var($int, FILTER_VALIDATE_INT))			// 验证了一个整数
+{
+echo("不是一个合法的整数");
+}
+?>
+```
+
+Validating 过滤器：用于验证用户输入，严格的格式规则（比如 URL 或 E-Mail 验证），如果成功则返回预期的类型，如果失败则返回 FALSE。Sanitizing 过滤器：用于允许或禁止字符串中指定的字符，无数据格式规则，始终返回字符串。选项和标志用于向指定的过滤器添加额外的过滤选项，不同的过滤器有不同的选项和标志
+
+```php
+<?php
+$var=300;
+$int_options = array(
+    "options"=>array
+    (
+        "min_range"=>0,
+        "max_range"=>256
+    )
+); 
+if(!filter_var($var, FILTER_VALIDATE_INT, $int_options)) 
+{// 结果：不是一个合法的整数。选项必须放入一个名为 "options" 的相关数组中
+    echo("不是一个合法的整数");
+}
+else
+{
+    echo("是个合法的整数");
+}
+if(!filter_has_var(INPUT_GET, "email"))			// 检测是否存在 "GET" 类型的 "email" 输入变量
+{
+    echo("没有 email 参数");
+}
+else
+{
+    if (!filter_input(INPUT_GET, "email", FILTER_VALIDATE_EMAIL))   // 检测它是否是有效的 e-mail 地址
+    {
+        echo "不是一个合法的 E-Mail";
+    }
+    else
+    {
+        echo "是一个合法的 E-Mail";
+    }
+}
+?>
+```
+
+验证方式为 `.php?email=...?`，验证 url `$url = filter_input(INPUT_GET, "url", FILTER_SANITIZE_URL);`
+
+```php
+<?php
+$filters = array
+(
+    "name" => array
+    (
+        "filter"=>FILTER_SANITIZE_STRING
+    ),
+    "age" => array
+    (
+        "filter"=>FILTER_VALIDATE_INT,
+        "options"=>array
+        (
+            "min_range"=>1,
+            "max_range"=>120
+        )
+    ),
+    "email"=> FILTER_VALIDATE_EMAIL
+);
+ 
+$result = filter_input_array(INPUT_GET, $filters);
+ 
+if (!$result["age"])
+{
+    echo("年龄必须在 1 到 120 之间。<br>");
+}
+elseif(!$result["email"])
+{
+    echo("E-Mail 不合法<br>");
+}
+else
+{
+    echo("输入正确");
+}
+?>
+```
+
+设置一个数组，其中包含了输入变量的名称和用于指定的输入变量的过滤器，调用 filter_input_array() 函数，参数包括 GET 输入变量及刚才设置的数组。检测 $result 变量中的 "age" 和 "email" 变量是否有非法的输入，如果存在非法输入，在使用 filter_input_array() 函数之后，输入变量为 FALSE。filter_input_array() 函数的第二个参数可以是数组或单一过滤器的 ID，
+
+- 如果该参数是单一过滤器的 ID，那么这个指定的过滤器会过滤输入数组中所有的值。
+- 如果该参数是一个数组，那么此数组必须是一个关联数组，其中包含的输入变量是数组的键（比如 "age" 输入变量） ，此数组的值必须是过滤器的 ID ，或者是规定了过滤器、标志和选项的数组
+
+通过使用 FILTER_CALLBACK 过滤器，可以调用自定义的函数，把它作为一个过滤器来使用 	
+
+```php
+<?php
+function convertSpace($string)
+{
+    return str_replace("_", ".", $string);
+}
+$string = "www_runoob_com!";
+echo filter_var($string, FILTER_CALLBACK,
+array("options"=>"convertSpace"));
+$int = 122;
+$min = 1;
+$max = 200;
+if (filter_var($int, FILTER_VALIDATE_INT, array("options" => array("min_range"=>$min, "max_range"=>$max))) === false)         // 检测一个 INT 型的变量是否在 1 到 200 内
+    ...
+// 检测一个 $ip 变量是否是 IPv6 地址:
+if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false)
+$url = "http://www.runoob.com";    
+// 检测 $url 是否包含查询字符串
+if (!filter_var($url, FILTER_VALIDATE_URL, FILTER_FLAG_QUERY_REQUIRED) === false)
+$str = "<h1>Hello WorldÆØÅ!</h1>";
+// 移除字符串中 ASCII 值大于 127 的字符，同样它也能移除 HTML 标签
+$newstr = filter_var($str, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+echo $newstr;
+?>
+```
+
+过滤器参考手册：<https://www.runoob.com/php/php-ref-filter.html>
+
+### JSON
+
+在 php5.2.0 及以上版本已经内置 JSON 扩展
+
+json_encode() 用于对变量进行 JSON 编码，函数只对 UTF-8 编码的数据有效，如果执行成功返回 JSON 数据，否则返回 FALSE。第二个参数是由以下常量组成的二进制掩码：JSON_HEX_QUOT，JSON_HEX_TAG，JSON_HEX_AMP，JSON_HEX_APOS， JSON_NUMERIC_CHECK，JSON_PRETTY_PRINT，JSON_UNESCAPED_SLASHES，JSON_FORCE_OBJECT
+
+```php
+<?php
+    $arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
+	echo json_encode($arr);         
+	// 将 PHP 数组转换为 JSON 格式数据，结果是 {"a":1,"b":2,"c":3,"d":4,"e":5}
+    class Emp {
+        public $name = "sachin";
+        public $hobbies  = "sports";
+        public $birthdate = "date('m/d/Y h:i:s a', "8/5/1974 12:20:03 p");";
+        // 或者 date('m/d/Y h:i:s a', strtotime("8/5/1974 12:20:03"))
+    }
+    $e = new Emp();
+    echo json_encode($e);
+	// 结果是 {"name":"sachin","hobbies":"sports","birthdate":"08\/05\/1974 12:20:03 pm"}
+?> 
+```
+
+json_decode() 函数用于对 JSON 格式的字符串进行解码，并转换为 PHP 变量。语法为
+
+```php
+mixed json_decode ($json_string [,$assoc = false [, $depth = 512 [, $options = 0 ]]])
+```
+
+- json_string: 待解码的 JSON 字符串，必须是 UTF-8 编码数据
+- assoc: 当该参数为 TRUE 时，将返回数组，FALSE 时返回对象。
+- **depth**: 整数类型的参数，它指定递归深度
+- options: 二进制掩码，目前只支持 JSON_BIGINT_AS_STRING 
+
+```php
+<?php
+   $json = '{"a":1,"b":2,"c":3,"d":4,"e":5}';
+   var_dump(json_decode($json));         // 返回数组
+   var_dump(json_decode($json, true));         
+// 返回对象，结果为 object(stdClass)#1 (5) {...
+?>
+```
+
