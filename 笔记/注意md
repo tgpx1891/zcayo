@@ -43,3 +43,5 @@ wampserver 打开页面中文乱码：保存文件类型为 UTF-8
 
 1. 查找 AllowOverride None，改为  AllowOverride All 
 2. 查找 mod_rewrite，去掉前面的注释 （#）
+
+Shadowsocks下载地址`https://blog.51cto.com/sandshell/2325533?source=dra`
